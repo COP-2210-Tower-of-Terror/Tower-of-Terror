@@ -1,2 +1,4 @@
 # Tower-of-Terror
-LETS GO TEAM
+LET'S GO TEAM! 
+We got this.
+
