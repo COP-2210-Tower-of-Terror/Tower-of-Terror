@@ -1,0 +1,29 @@
+ public void Attic(){
+     //String array of choices for the JOptionPane
+        String[] choicesBoilerRoom = {"Check the Chest ",
+            " Go back to the elevator ",
+            
+        };
+        //JOptionPane with String conversion from object type.
+        String inputBoilerRoom = (String) JOptionPane.showInputDialog(null, "You are in the Attic " + namePC +
+            ". \nThere is a lot of things here in here.\n"
+                    + "but there is and old rusty chest ?"
+                    + "\nShould i check the chest or go back to the Elevator ",
+                 JOptionPane.QUESTION_MESSAGE,
+            null,
+           choicesBoilerRoom,
+            choicesBoilerRoom[0]);
+        //Calls chosenDestination, which returns the index of the chosen location
+        //after being passed in the returned string from JOptionPane,
+        //and the string Array of choices
+        int nextActionIndex = chosenDestination(choicesBoilerRoom, inputBoilerRoom);
+        switch(nextActionIndex){
+            case 0:
+                ();
+                break;
+            case 1:
+            //Backpackindex = Refridgerator
+                Elevator();
+                break;
+               }}
+}
