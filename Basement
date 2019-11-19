@@ -1,0 +1,100 @@
+           //Modified by Yasmani Valdes 6214495 //
+    public void Basement(){
+       
+              //I show a map here to provide some clarity on the options.
+            ImageIcon mapBasement = new ImageIcon("src/main/java/img/stairs-top.gif");
+            String[] choicesBasement = {"The [Door] to your right",
+                "The [Door] to your left ","Elevator" 
+                };
+            
+              
+              //JOptionPane with String conversion from object type.
+            String inputBasement = (String) JOptionPane.showInputDialog(null,namePC + "You are know at the bottom floor of the Tower which is a basement."+
+                "\nThe elevator doors opens  , and you realise there are two doors [Doors.]\n"+
+                "Which one do you choose?",
+                "Take the elevator up",
+                JOptionPane.QUESTION_MESSAGE,
+                mapBasement,
+                choicesBasement,
+                choicesBasement[0]);
+            //Calls chosenDestination, which returns the index of the chosen location
+             //after being passed in the returned string from JOptionPane,
+            //and the string Array of choices
+            
+            int nextActionIndex = chosenDestination(choicesBasement, inputBasement);
+            switch(nextActionIndex){
+                case 0: //Bedroom 1
+                    BoilerRoom();
+                    break;
+                case 1:             
+                    StorageRoom();
+                    break;
+                case 3:
+                Elevator();
+                break;
+                  }  
+            
+    }
+        
+    /**
+     *
+     */
+     
+    
+    public void BoilerRoom(){
+     //String array of choices for the JOptionPane
+        String[] choicesBoilerRoom = {"Go to the Storage Room.",
+            " Go back to the Elevator ",  
+        };
+        //JOptionPane with String conversion from object type.
+        String inputBoilerRoom = (String) JOptionPane.showInputDialog(null, "You are in the Boiler Room, " + namePC +
+            ". \nIts an empty room with nothing interesting.\n"
+                    + "\nWhat would you like to to next",
+            JOptionPane.QUESTION_MESSAGE,
+            null,
+           choicesBoilerRoom,
+            choicesBoilerRoom[0]);
+        //Calls chosenDestination, which returns the index of the chosen location
+        //after being passed in the returned string from JOptionPane,
+        //and the string Array of choices
+        int nextActionIndex = chosenDestination(choicesBoilerRoom, inputBoilerRoom);
+        switch(nextActionIndex){
+            case 0:
+                StorageRoom();
+                break;
+            case 1:
+                Elevator();
+                break;
+               }
+        }
+public void StorageRoom(){
+     //String array of choices for the JOptionPane
+        String[] choicesBoilerRoom = {"Go to the Boiler Room ",
+            " Go to the elevator ",
+            
+        };
+        //JOptionPane with String conversion from object type.
+        String inputBoilerRoom = (String) JOptionPane.showInputDialog(null, "You are in the Storage Room " + namePC +
+            ". \nThere is a lot of things here in here.\n"
+                    + "but there is and old rusty chest ?"
+                    + "\nShould i check the chest or go back to the Elevator or the Boiler Room",
+                 JOptionPane.QUESTION_MESSAGE,
+            null,
+           choicesBoilerRoom,
+            choicesBoilerRoom[0]);
+        //Calls chosenDestination, which returns the index of the chosen location
+        //after being passed in the returned string from JOptionPane,
+        //and the string Array of choices
+        int nextActionIndex = chosenDestination(choicesBoilerRoom, inputBoilerRoom);
+        switch(nextActionIndex){
+            case 0:
+                BoilerRoom();
+                break;
+            case 1:
+            //Backpackindex = Refridgerator
+                Elevator();
+                break;
+               }}
+
+   
+   }
