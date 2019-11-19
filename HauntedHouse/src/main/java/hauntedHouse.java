@@ -47,6 +47,12 @@ public class hauntedHouse {
     Java intializes booleans to false. 
     */
     private boolean[] roomsExplored = new boolean[13];
+    
+    /**
+     * Eric: This boolean checks whether the elevator method was called, which
+     * is used to break the while loop in the room methods
+     */
+    private boolean elevatorCalled = false;
 
     
     
@@ -87,6 +93,8 @@ public class hauntedHouse {
         the Tower of Terror, they start at the Front Door.
         */
       boolean playerStart = true;  
+      
+      elevatorCalled = true;
       
       /*Array of options to be offered in the elevator. Used with 
       Chosen Destination function to create a switch case.
@@ -237,71 +245,73 @@ public class hauntedHouse {
      * room. Replaced it with going to the elevator.
      */
     public void LivingRoom(){
-        
-        
-        //String array of choices for the JOptionPane
-       String[] choices = {"Open the [Chest].", "Go back into the [Elevator]."};
-       
-       //JOptionPane with String conversion from object type.
-        String inputFD = (String) JOptionPane.showInputDialog(null, "Welcome to the Living Room, " + namePC +
-                ". \nSadly not much to welcome you here... The room looks pretty bare." +
-                "\nAside from a [Chest] in the corner, you see another [Door]...",
-            "The Living Room",
-            JOptionPane.QUESTION_MESSAGE,
-            null,
-            choices,
-            choices[0]);
-        //Calls chosenDestination, which returns the index of the chosen location
-        //after being passed in the returned string from JOptionPane,
-        //and the string Array of choices
-        int nextActionIndex = chosenDestination(choices, inputFD);
-        switch(nextActionIndex){
-            case 0: //BackpackIndex = chest
-                backpackIndex = 1;
-                Backpack();
-                break;
-            case 1:
-                Elevator();
-                break;
-            default:
-                System.out.println("null value. Did you close the window? Program terminated.");   
+        elevatorCalled = false; 
+        while(playerAlive == true || elevatorCalled == false){
+            //String array of choices for the JOptionPane
+           String[] choices = {"Open the [Chest].", "Go back into the [Elevator]."};
+
+           //JOptionPane with String conversion from object type.
+            String inputFD = (String) JOptionPane.showInputDialog(null, "Welcome to the Living Room, " + namePC +
+                    ". \nSadly not much to welcome you here... The room looks pretty bare." +
+                    "\nAside from a [Chest] in the corner, you see another [Door]...",
+                "The Living Room",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                choices,
+                choices[0]);
+            //Calls chosenDestination, which returns the index of the chosen location
+            //after being passed in the returned string from JOptionPane,
+            //and the string Array of choices
+            int nextActionIndex = chosenDestination(choices, inputFD);
+            switch(nextActionIndex){
+                case 0: //BackpackIndex = chest
+                    backpackIndex = 1;
+                    Backpack();
+                    break;
+                case 1:
+                    Elevator();
+                    break;
+                default:
+                    System.out.println("null value. Did you close the window? Program terminated.");   
+            }
         }
-       
     }
     /**
      * Eric: Removed cases where user could go to rooms connected to the dining
      * room. Replaced it with going to the elevator.
      */
     public void DiningRoom(){
-          
-        //String array of choices for the JOptionPane
-        String[] choicesDR = {"You reach out to the flickering [Candelabra]...", "Go back into the [Elevator]."};
+        elevatorCalled = false; 
+        while(playerAlive == true || elevatorCalled == false){
+            //String array of choices for the JOptionPane
+            String[] choicesDR = {"You reach out to the flickering [Candelabra]...", "Go back into the [Elevator]."};
 
-        //JOptionPane with String conversion from object type.
-        String inputDR = (String) JOptionPane.showInputDialog(null, "Welcome to the Dining Room, " + namePC +
-            ". \nWhat do ghosts even eat?\n"
-                    + "Might as well raid the [Kitchen] and find out."
-                    + "\nOr check out the [Candelabra]. Oooh, shiny...",
-            "The Dining Room",
-            JOptionPane.QUESTION_MESSAGE,
-            null,
-            choicesDR,
-            choicesDR[0]);
-        //Calls chosenDestination, which returns the index of the chosen location
-        //after being passed in the returned string from JOptionPane,
-        //and the string Array of choices
-        int nextActionIndex = chosenDestination(choicesDR, inputDR);
-        switch(nextActionIndex){
-            case 0:
-            //Backpackindex = candelabra
-                backpackIndex = 2;
-                Backpack();
-                break;
-            case 1:
-                Elevator();
-                break;
-            default:
-                System.out.println("null value. Did you close the window? Program terminated.");
+            //JOptionPane with String conversion from object type.
+            String inputDR = (String) JOptionPane.showInputDialog(null, "Welcome to the Dining Room, " + namePC +
+                ". \nWhat do ghosts even eat?\n"
+                        + "Might as well raid the [Kitchen] and find out."
+                        + "\nOr check out the [Candelabra]. Oooh, shiny...",
+                "The Dining Room",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                choicesDR,
+                choicesDR[0]);
+            //Calls chosenDestination, which returns the index of the chosen location
+            //after being passed in the returned string from JOptionPane,
+            //and the string Array of choices
+            int nextActionIndex = chosenDestination(choicesDR, inputDR);
+            switch(nextActionIndex){
+                case 0:
+                //Backpackindex = candelabra
+                    backpackIndex = 2;
+                    Backpack();
+                    break;
+                case 1:
+                    Elevator();
+                    break;
+                default:
+                    System.out.println("null value. Did you close the window? Program terminated.");
+            }
         }
     }
     /**
@@ -309,157 +319,173 @@ public class hauntedHouse {
      * Replaced it with going to the elevator.
      */    
     public void Kitchen(){
-     //String array of choices for the JOptionPane
-        String[] choicesKIT = {"It's rude to open someone else's [Refridgerator].",
-            "You decide to take a little peek into the [Cabinet]...",
-            "Go back into the [Elevator]"
-        };
+        elevatorCalled = false; 
+        while(playerAlive == true || elevatorCalled == false){
+            //String array of choices for the JOptionPane
+           String[] choicesKIT = {"It's rude to open someone else's [Refridgerator].",
+               "You decide to take a little peek into the [Cabinet]...",
+               "Go back into the [Elevator]"
+           };
 
-        //JOptionPane with String conversion from object type.
-        String inputKIT = (String) JOptionPane.showInputDialog(null, "Welcome to the Kitchen, " + namePC +
-            ". \nIt smells awful in here.\n"
-                    + "Maybe it's coming from the [Refridgerator] or the [Cabinet]?"
-                    + "\nOr should we just check out what hides behind the next [Door]...",
-            "The Kitchen",
-            JOptionPane.QUESTION_MESSAGE,
-            null,
-            choicesKIT,
-            choicesKIT[0]);
-        //Calls chosenDestination, which returns the index of the chosen location
-        //after being passed in the returned string from JOptionPane,
-        //and the string Array of choices
-        int nextActionIndex = chosenDestination(choicesKIT, inputKIT);
-        switch(nextActionIndex){
-            case 0:
-            //Backpackindex = Refridgerator
-                backpackIndex = 3;
-                Backpack();
-                break;
-            case 1: //Backpackindex = cabinet 
-                backpackIndex = 4;
-                Backpack();
-                break;
-            case 3:
-                Elevator();
-                break;
-            default:
-                System.out.println("null value. Did you close the window? Program terminated.");    }
+           //JOptionPane with String conversion from object type.
+           String inputKIT = (String) JOptionPane.showInputDialog(null, "Welcome to the Kitchen, " + namePC +
+               ". \nIt smells awful in here.\n"
+                       + "Maybe it's coming from the [Refridgerator] or the [Cabinet]?"
+                       + "\nOr should we just check out what hides behind the next [Door]...",
+               "The Kitchen",
+               JOptionPane.QUESTION_MESSAGE,
+               null,
+               choicesKIT,
+               choicesKIT[0]);
+           //Calls chosenDestination, which returns the index of the chosen location
+           //after being passed in the returned string from JOptionPane,
+           //and the string Array of choices
+           int nextActionIndex = chosenDestination(choicesKIT, inputKIT);
+           switch(nextActionIndex){
+               case 0:
+               //Backpackindex = Refridgerator
+                   backpackIndex = 3;
+                   Backpack();
+                   break;
+               case 1: //Backpackindex = cabinet 
+                   backpackIndex = 4;
+                   Backpack();
+                   break;
+               case 3:
+                   Elevator();
+                   break;
+               default:
+                   System.out.println("null value. Did you close the window? Program terminated.");
+           }
         }
+    }
     /**
      * Eric: Removed case where user could backtrack from the pantry
      * . Replaced it with going to the elevator.
      */
     public void Pantry(){
-         //String array of choices for the JOptionPane
-        String[] choicesPAN = {"Ah, maybe some secrets in this [Dusty Recipe Box].",
-            "Welp. Might as well do some light cleaning with the [Broom].",
-            "Go back to the [Elevator]."};
+            elevatorCalled = false; 
+            while(playerAlive == true || elevatorCalled == false){
+             //String array of choices for the JOptionPane
+            String[] choicesPAN = {"Ah, maybe some secrets in this [Dusty Recipe Box].",
+                "Welp. Might as well do some light cleaning with the [Broom].",
+                "Go back to the [Elevator]."};
 
-        //JOptionPane with String conversion from object type.
-        String inputPAN = (String) JOptionPane.showInputDialog(null, "Welcome to the Pantry, " + namePC +
-            ". \nIt's a little dusty and cramped in here.\n"
-                    + "On the shelves, you see a [Dusty recipe box],"
-                    + "\nand in the corner, a [Broom].",
-            "The Pantry",
-            JOptionPane.QUESTION_MESSAGE,
-            null,
-            choicesPAN,
-            choicesPAN[0]);
-        //Calls chosenDestination, which returns the index of the chosen location
-        //after being passed in the returned string from JOptionPane,
-        //and the string Array of choices
-        int nextActionIndex = chosenDestination(choicesPAN, inputPAN);
-        switch(nextActionIndex){
-            case 0: //BackpackIndex = Dusty recipe box
-                backpackIndex =5;
-                Backpack();
-                break;
-            case 1:
-            //Backpackindex = Broom
-                backpackIndex = 6;
-                Backpack();
-                break;
-            case 2:
-                Elevator();
-                break;
-            default:
-                System.out.println("null value. Did you close the window? Program terminated.");
+            //JOptionPane with String conversion from object type.
+            String inputPAN = (String) JOptionPane.showInputDialog(null, "Welcome to the Pantry, " + namePC +
+                ". \nIt's a little dusty and cramped in here.\n"
+                        + "On the shelves, you see a [Dusty recipe box],"
+                        + "\nand in the corner, a [Broom].",
+                "The Pantry",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                choicesPAN,
+                choicesPAN[0]);
+            //Calls chosenDestination, which returns the index of the chosen location
+            //after being passed in the returned string from JOptionPane,
+            //and the string Array of choices
+            int nextActionIndex = chosenDestination(choicesPAN, inputPAN);
+            switch(nextActionIndex){
+                case 0: //BackpackIndex = Dusty recipe box
+                    backpackIndex =5;
+                    Backpack();
+                    break;
+                case 1:
+                //Backpackindex = Broom
+                    backpackIndex = 6;
+                    Backpack();
+                    break;
+                case 2:
+                    Elevator();
+                    break;
+                default:
+                    System.out.println("null value. Did you close the window? Program terminated.");
+            }
         }
     }
     /**
-     * Eric: Removed stairs. To be replaced with elevator.
+     * Eric: Removed stairs. Replaced with elevator.
      */
     /**
      * Eric: Removed cases where user could go to rooms or the stairs 
      * connected to the master bedroom. Replaced it with going to the elevator.
      */
     public void MasterBedroom(){   
-        //String array of choices for the JOptionPane
-        String[] choicesMBed = {"Anything good to pawn in the [Jewelry Box]?", "Go back to the [Elevator]."};
+        elevatorCalled = false; 
+        while(playerAlive == true || elevatorCalled == false){
+            //String array of choices for the JOptionPane
+            String[] choicesMBed = {"Anything good to pawn in the [Jewelry Box]?", "Go back to the [Elevator]."};
 
-        //JOptionPane with String conversion from object type.
-        String inputMBed = (String) JOptionPane.showInputDialog(null, "Welcome to the Master Bedroom, " + namePC +
-            ". \nA large bed stands in the middle of the room. It's tacky.\n"
-                    + "You see the real goods, a [Jewelry Box] in the corner."
-                    + "\nAnother [Door], shut, beckons from the far corner.",
-                "The Master Bedroom",
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-            choicesMBed,
-            choicesMBed[0]);
-        //Calls chosenDestination, which returns the index of the chosen location
-        //after being passed in the returned string from JOptionPane,
-        //and the string Array of choices
-        int nextActionIndex = chosenDestination(choicesMBed, inputMBed);
-        switch(nextActionIndex){
-            case 0:
-            //Backpackindex = Jewelry Box
-                backpackIndex = 13;
-                Backpack();
-                break;
-            case 1:
-                Elevator();
-                break;
-            default:
-                System.out.println("null value. Did you close the window? Program terminated.");}
+            //JOptionPane with String conversion from object type.
+            String inputMBed = (String) JOptionPane.showInputDialog(null, "Welcome to the Master Bedroom, " + namePC +
+                ". \nA large bed stands in the middle of the room. It's tacky.\n"
+                        + "You see the real goods, a [Jewelry Box] in the corner."
+                        + "\nAnother [Door], shut, beckons from the far corner.",
+                    "The Master Bedroom",
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                choicesMBed,
+                choicesMBed[0]);
+            //Calls chosenDestination, which returns the index of the chosen location
+            //after being passed in the returned string from JOptionPane,
+            //and the string Array of choices
+            int nextActionIndex = chosenDestination(choicesMBed, inputMBed);
+            switch(nextActionIndex){
+                case 0:
+                //Backpackindex = Jewelry Box
+                    backpackIndex = 13;
+                    Backpack();
+                    break;
+                case 1:
+                    Elevator();
+                    break;
+                default:
+                    System.out.println("null value. Did you close the window? Program terminated.");
+            }
         }
+    }
     /**
      * Eric: Removed case where user could backtrack from master bathroom. Replaced it with going to the elevator.
      */
-    public void MasterBathroom(){//String array of choices for the JOptionPane
-        String[] choicesMBath = {"An [Intricate Oil Lamp]? ...Like an oil diffuser?", 
-            "Master Bathrooms must have pretty cool [Showers], right?", "Go back to the [Elevator]."};
+    public void MasterBathroom(){
+        elevatorCalled = false; 
+        while(playerAlive == true || elevatorCalled == false){
+            //String array of choices for the JOptionPane
+            String[] choicesMBath = {"An [Intricate Oil Lamp]? ...Like an oil diffuser?", 
+                "Master Bathrooms must have pretty cool [Showers], right?", "Go back to the [Elevator]."};
 
-        //JOptionPane with String conversion from object type.
-        String inputMBath = (String) JOptionPane.showInputDialog(null, "Welcome to the Master Bathroom, " + namePC +
-            ". \nThe bathroom is spacious and freezing.\n"
-                    + "On the counter, a [Intricate Oil Lamp]."
-                    + "\nIn the corner, the bathroom staple, a [Shower]. Bless.",
-                "The Master Bathroom",
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-            choicesMBath,
-            choicesMBath[0]);
-        //Calls chosenDestination, which returns the index of the chosen location
-        //after being passed in the returned string from JOptionPane,
-        //and the string Array of choices
-        int nextActionIndex = chosenDestination(choicesMBath, inputMBath);
-        switch(nextActionIndex){
-            case 0:
-            //Backpackindex = Intricate Oil Lamp
-                backpackIndex = 14;
-                Backpack();
-                break;
-            case 1://Backpackindex = Shower
-                backpackIndex = 8;
-                bathroomShower = 2;
-                Backpack();
-                break;
-            case 2: 
-                Elevator();
-                break;
-            default:
-                System.out.println("null value. Did you close the window? Program terminated.");}
+            //JOptionPane with String conversion from object type.
+            String inputMBath = (String) JOptionPane.showInputDialog(null, "Welcome to the Master Bathroom, " + namePC +
+                ". \nThe bathroom is spacious and freezing.\n"
+                        + "On the counter, a [Intricate Oil Lamp]."
+                        + "\nIn the corner, the bathroom staple, a [Shower]. Bless.",
+                    "The Master Bathroom",
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                choicesMBath,
+                choicesMBath[0]);
+            //Calls chosenDestination, which returns the index of the chosen location
+            //after being passed in the returned string from JOptionPane,
+            //and the string Array of choices
+            int nextActionIndex = chosenDestination(choicesMBath, inputMBath);
+            switch(nextActionIndex){
+                case 0:
+                //Backpackindex = Intricate Oil Lamp
+                    backpackIndex = 14;
+                    Backpack();
+                    break;
+                case 1://Backpackindex = Shower
+                    backpackIndex = 8;
+                    bathroomShower = 2;
+                    Backpack();
+                    break;
+                case 2: 
+                    Elevator();
+                    break;
+                default:
+                    System.out.println("null value. Did you close the window? Program terminated.");
+            }
+        }
     }
     /**
      * Eric: Removed cases where user could go to rooms or stairs connected to 
@@ -467,41 +493,44 @@ public class hauntedHouse {
      * ,fromStairs, and if statement from method due to it no longer being needed.
      */    
     public void firstBedroom(){
-    String[] choicesBed1FromStairs = {
-        "Wow, a [Rocking Chair] is so fun, just take a lil seat...", 
-        "Sweet, you've never seen a [Window] before!",
-        "Go back to the [Elevator]."};
+        elevatorCalled = false; 
+        while(playerAlive == true || elevatorCalled == false){
+            String[] choicesBed1FromStairs = {
+                "Wow, a [Rocking Chair] is so fun, just take a lil seat...", 
+                "Sweet, you've never seen a [Window] before!",
+                "Go back to the [Elevator]."};
 
-          //JOptionPane with String conversion from object type.
-    String inputBed1FromStairs = (String) JOptionPane.showInputDialog(null,"Welcome to the First 2nd-Floor Bedroom "
-            +namePC+
-            ". \nThe room is mostly barren, aside from a few pieces of furniture,\n"+
-            "including a [Rocking Chair] by the [Window]."
-            + "\nA [Door] in the room creaks.",
-        "The First 2nd Bedroom",
-        JOptionPane.QUESTION_MESSAGE,
-        null,
-        choicesBed1FromStairs,
-        choicesBed1FromStairs[0]);
+                  //JOptionPane with String conversion from object type.
+            String inputBed1FromStairs = (String) JOptionPane.showInputDialog(null,"Welcome to the First 2nd-Floor Bedroom "
+                    +namePC+
+                    ". \nThe room is mostly barren, aside from a few pieces of furniture,\n"+
+                    "including a [Rocking Chair] by the [Window]."
+                    + "\nA [Door] in the room creaks.",
+                "The First 2nd Bedroom",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                choicesBed1FromStairs,
+                choicesBed1FromStairs[0]);
 
-        //Calls chosenDestination, which returns the index of the chosen location
-        //after being passed in the returned string from JOptionPane,
-        //and the string Array of choices
-        int nextActionIndex = chosenDestination(choicesBed1FromStairs, inputBed1FromStairs);
-        switch(nextActionIndex){
-            case 0://Backpack Index = rocking chair
-                backpackIndex = 9;
-                Backpack();
-                break;
-            case 1://Backpack Index = Window
-                backpackIndex = 10;
-                Backpack();
-                break;
-            case 2:
-                Elevator();
-                break;
-            default:
-                System.out.println("null value. Did you close the window? Program terminated.");
+                //Calls chosenDestination, which returns the index of the chosen location
+                //after being passed in the returned string from JOptionPane,
+                //and the string Array of choices
+            int nextActionIndex = chosenDestination(choicesBed1FromStairs, inputBed1FromStairs);
+            switch(nextActionIndex){
+                case 0://Backpack Index = rocking chair
+                    backpackIndex = 9;
+                    Backpack();
+                    break;
+                case 1://Backpack Index = Window
+                    backpackIndex = 10;
+                    Backpack();
+                    break;
+                case 2:
+                    Elevator();
+                    break;
+                default:
+                    System.out.println("null value. Did you close the window? Program terminated.");
+            }
         }
     }
     
@@ -511,41 +540,44 @@ public class hauntedHouse {
      * ,fromStairs, and if statement from method due to it no longer being needed.
      */    
     public void secondBedroom(){
-    String[] choicesBed2FromStairs = {
-        "Let's check out this totally inconspicuous [Doll House]!", 
-        "Let's see what's in this [Dresser].",
-        "Go back to the [Elevator]."};
+        elevatorCalled = false; 
+        while(playerAlive == true || elevatorCalled == false){
+            String[] choicesBed2FromStairs = {
+                "Let's check out this totally inconspicuous [Doll House]!", 
+                "Let's see what's in this [Dresser].",
+                "Go back to the [Elevator]."};
 
-    //JOptionPane with String conversion from object type.
-        String inputBed2FromStairs = (String) JOptionPane.showInputDialog(null,"Welcome to the Second 2nd-Floor Bedroom "
-            +namePC+
-            ". \nYou find yourself in another, cold dark room.\n"+
-            "A [Doll House] sits at the center, a barely standing [Dresser] against the wall."
-            + "\nA [Door] in the room creaks.",
-            "The Second 2nd Floor Bedroom",
-            JOptionPane.QUESTION_MESSAGE,
-            null,
-            choicesBed2FromStairs,
-            choicesBed2FromStairs[0]);
+            //JOptionPane with String conversion from object type.
+            String inputBed2FromStairs = (String) JOptionPane.showInputDialog(null,"Welcome to the Second 2nd-Floor Bedroom "
+                +namePC+
+                ". \nYou find yourself in another, cold dark room.\n"+
+                "A [Doll House] sits at the center, a barely standing [Dresser] against the wall."
+                + "\nA [Door] in the room creaks.",
+                "The Second 2nd Floor Bedroom",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                choicesBed2FromStairs,
+                choicesBed2FromStairs[0]);
 
-        //Calls chosenDestination, which returns the index of the chosen location
-        //after being passed in the returned string from JOptionPane,
-        //and the string Array of choices
-        int nextActionIndex = chosenDestination(choicesBed2FromStairs, inputBed2FromStairs);
-        switch(nextActionIndex){
-            case 0://Backpack Index = Doll House
-                backpackIndex = 11;
-                Backpack();
-                break;
-            case 1://Backpack Index = Dresser
-                backpackIndex = 12;
-                Backpack();
-                break;
-            case 2:
-                Elevator();
-                break;
-            default:
-                System.out.println("null value. Did you close the window? Program terminated.");
+            //Calls chosenDestination, which returns the index of the chosen location
+            //after being passed in the returned string from JOptionPane,
+            //and the string Array of choices
+            int nextActionIndex = chosenDestination(choicesBed2FromStairs, inputBed2FromStairs);
+            switch(nextActionIndex){
+                case 0://Backpack Index = Doll House
+                    backpackIndex = 11;
+                    Backpack();
+                    break;
+                case 1://Backpack Index = Dresser
+                    backpackIndex = 12;
+                    Backpack();
+                    break;
+                case 2:
+                    Elevator();
+                    break;
+                default:
+                    System.out.println("null value. Did you close the window? Program terminated.");
+            }
         }
     }
     
@@ -554,73 +586,79 @@ public class hauntedHouse {
      * go to another room from it, replacing it with the elevator.
      */    
     public void Bathroom1(){
-    //String array of choices for the JOptionPane
-        String[] choicesB1 = {"Turn to the [Mirror]...", "Maybe something is behind the [Shower] curtain...?", "Go back to the [Elevator]."};
-       
-        //JOptionPane with String conversion from object type.
-        String inputB1stFloor = (String) JOptionPane.showInputDialog(null, "Welcome to the Living Room Bathroom, " + namePC +
-            ". \nYou wonder if living rooms often have bathrooms..." +
-            "\nThere is a [Mirror] and a [Shower]. Couldn't have a bathroom without those.",
-            "The Living Room's Bathroom",
-            JOptionPane.QUESTION_MESSAGE,
-            null,
-            choicesB1,
-            choicesB1[0]);
-        //Calls chosenDestination, which returns the index of the chosen location
-        //after being passed in the returned string from JOptionPane,
-        //and the string Array of choices
-        int nextActionIndexB1 = chosenDestination(choicesB1, inputB1stFloor);
-        switch(nextActionIndexB1){
-            case 0:
-                //Backpackindex = Mirror;
-                backpackIndex = 7;
-                Backpack();
-                break;
-            case 1:
-                //Backpackindex = shower
-                backpackIndex = 8;
-                Backpack();
-                break;
-            case 2:
-                Elevator();
-                break;
-            default:
-                System.out.println("null value. Did you close the window? Program terminated.");    
+        elevatorCalled = false; 
+        while(playerAlive == true || elevatorCalled == false){
+            //String array of choices for the JOptionPane
+            String[] choicesB1 = {"Turn to the [Mirror]...", "Maybe something is behind the [Shower] curtain...?", "Go back to the [Elevator]."};
+
+            //JOptionPane with String conversion from object type.
+            String inputB1stFloor = (String) JOptionPane.showInputDialog(null, "Welcome to the Living Room Bathroom, " + namePC +
+                ". \nYou wonder if living rooms often have bathrooms..." +
+                "\nThere is a [Mirror] and a [Shower]. Couldn't have a bathroom without those.",
+                "The Living Room's Bathroom",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                choicesB1,
+                choicesB1[0]);
+            //Calls chosenDestination, which returns the index of the chosen location
+            //after being passed in the returned string from JOptionPane,
+            //and the string Array of choices
+            int nextActionIndexB1 = chosenDestination(choicesB1, inputB1stFloor);
+            switch(nextActionIndexB1){
+                case 0:
+                    //Backpackindex = Mirror;
+                    backpackIndex = 7;
+                    Backpack();
+                    break;
+                case 1:
+                    //Backpackindex = shower
+                    backpackIndex = 8;
+                    Backpack();
+                    break;
+                case 2:
+                    Elevator();
+                    break;
+                default:
+                    System.out.println("null value. Did you close the window? Program terminated.");    
+            }
         }
     }
     public void Bathroom2(){
-    //String array of choices for the JOptionPane
-        String[] choicesB2 = {"Turn to the [Mirror]...", "Maybe something is behind the [Shower] curtain...?", "Go back to the [Elevator]."};
-       
-        //JOptionPane with String conversion from object type.
-        String inputB1stFloor = (String) JOptionPane.showInputDialog(null, "Welcome to the Living Room Bathroom, " + namePC +
-            ". \nYou wonder if living rooms often have bathrooms..." +
-            "\nThere is a [Mirror] and a [Shower]. Couldn't have a bathroom without those.",
-            "The Living Room's Bathroom",
-            JOptionPane.QUESTION_MESSAGE,
-            null,
-            choicesB2,
-            choicesB2[0]);
-        //Calls chosenDestination, which returns the index of the chosen location
-        //after being passed in the returned string from JOptionPane,
-        //and the string Array of choices
-        int nextActionIndexB1 = chosenDestination(choicesB2, inputB1stFloor);
-        switch(nextActionIndexB1){
-            case 0:
-                //Backpackindex = Mirror;
-                backpackIndex = 7;
-                Backpack();
-                break;
-            case 1:
-                //Backpackindex = shower
-                backpackIndex = 8;
-                Backpack();
-                break;
-            case 2:
-                Elevator();
-                break;
-            default:
-                System.out.println("null value. Did you close the window? Program terminated.");    
+        elevatorCalled = false; 
+        while(playerAlive == true || elevatorCalled == false){
+            //String array of choices for the JOptionPane
+            String[] choicesB2 = {"Turn to the [Mirror]...", "Maybe something is behind the [Shower] curtain...?", "Go back to the [Elevator]."};
+
+            //JOptionPane with String conversion from object type.
+            String inputB1stFloor = (String) JOptionPane.showInputDialog(null, "Welcome to the Living Room Bathroom, " + namePC +
+                ". \nYou wonder if living rooms often have bathrooms..." +
+                "\nThere is a [Mirror] and a [Shower]. Couldn't have a bathroom without those.",
+                "The Living Room's Bathroom",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                choicesB2,
+                choicesB2[0]);
+            //Calls chosenDestination, which returns the index of the chosen location
+            //after being passed in the returned string from JOptionPane,
+            //and the string Array of choices
+            int nextActionIndexB1 = chosenDestination(choicesB2, inputB1stFloor);
+            switch(nextActionIndexB1){
+                case 0:
+                    //Backpackindex = Mirror;
+                    backpackIndex = 7;
+                    Backpack();
+                    break;
+                case 1:
+                    //Backpackindex = shower
+                    backpackIndex = 8;
+                    Backpack();
+                    break;
+                case 2:
+                    Elevator();
+                    break;
+                default:
+                    System.out.println("null value. Did you close the window? Program terminated.");    
+            }
         }
     }
     
