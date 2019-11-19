@@ -53,6 +53,12 @@ public class hauntedHouse {
      * is used to break the while loop in the room methods
      */
     private boolean elevatorCalled = false;
+    
+    /*
+    playerStart: If the player has just entered
+    the Tower of Terror, they start at the Front Door.
+    */
+    private boolean playerStart = true;
 
     
     
@@ -87,13 +93,7 @@ public class hauntedHouse {
      * Tiffany Reyes: Elevator case.
      */
     
-    public void Elevator(){
-        /*
-        playerStart: If the player has just entered
-        the Tower of Terror, they start at the Front Door.
-        */
-      boolean playerStart = true;  
-      
+    public void Elevator(){ 
       elevatorCalled = true;
       
       /*Array of options to be offered in the elevator. Used with 
@@ -237,7 +237,8 @@ public class hauntedHouse {
                 //Elevator();
                 break;
             default:
-                System.out.println("null value. Did you close the window? Program terminates.");   
+                System.out.println("null value. Did you close the window? Program terminates.");
+                playerAlive = false;
         }
     }
     /**
@@ -246,7 +247,7 @@ public class hauntedHouse {
      */
     public void LivingRoom(){
         elevatorCalled = false; 
-        while(playerAlive == true || elevatorCalled == false){
+        while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
            String[] choices = {"Open the [Chest].", "Go back into the [Elevator]."};
 
@@ -272,7 +273,8 @@ public class hauntedHouse {
                     Elevator();
                     break;
                 default:
-                    System.out.println("null value. Did you close the window? Program terminated.");   
+                    System.out.println("null value. Did you close the window? Program terminated.");
+                    playerAlive = false;
             }
         }
     }
@@ -282,7 +284,7 @@ public class hauntedHouse {
      */
     public void DiningRoom(){
         elevatorCalled = false; 
-        while(playerAlive == true || elevatorCalled == false){
+        while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
             String[] choicesDR = {"You reach out to the flickering [Candelabra]...", "Go back into the [Elevator]."};
 
@@ -311,6 +313,7 @@ public class hauntedHouse {
                     break;
                 default:
                     System.out.println("null value. Did you close the window? Program terminated.");
+                    playerAlive = false;
             }
         }
     }
@@ -320,7 +323,7 @@ public class hauntedHouse {
      */    
     public void Kitchen(){
         elevatorCalled = false; 
-        while(playerAlive == true || elevatorCalled == false){
+        while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
            String[] choicesKIT = {"It's rude to open someone else's [Refridgerator].",
                "You decide to take a little peek into the [Cabinet]...",
@@ -351,11 +354,12 @@ public class hauntedHouse {
                    backpackIndex = 4;
                    Backpack();
                    break;
-               case 3:
+               case 2:
                    Elevator();
                    break;
                default:
                    System.out.println("null value. Did you close the window? Program terminated.");
+                   playerAlive = false;
            }
         }
     }
@@ -365,7 +369,7 @@ public class hauntedHouse {
      */
     public void Pantry(){
             elevatorCalled = false; 
-            while(playerAlive == true || elevatorCalled == false){
+            while(playerAlive == true && elevatorCalled == false){
              //String array of choices for the JOptionPane
             String[] choicesPAN = {"Ah, maybe some secrets in this [Dusty Recipe Box].",
                 "Welp. Might as well do some light cleaning with the [Broom].",
@@ -400,6 +404,7 @@ public class hauntedHouse {
                     break;
                 default:
                     System.out.println("null value. Did you close the window? Program terminated.");
+                    playerAlive = false;
             }
         }
     }
@@ -412,7 +417,7 @@ public class hauntedHouse {
      */
     public void MasterBedroom(){   
         elevatorCalled = false; 
-        while(playerAlive == true || elevatorCalled == false){
+        while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
             String[] choicesMBed = {"Anything good to pawn in the [Jewelry Box]?", "Go back to the [Elevator]."};
 
@@ -441,6 +446,7 @@ public class hauntedHouse {
                     break;
                 default:
                     System.out.println("null value. Did you close the window? Program terminated.");
+                    playerAlive = false;
             }
         }
     }
@@ -449,7 +455,7 @@ public class hauntedHouse {
      */
     public void MasterBathroom(){
         elevatorCalled = false; 
-        while(playerAlive == true || elevatorCalled == false){
+        while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
             String[] choicesMBath = {"An [Intricate Oil Lamp]? ...Like an oil diffuser?", 
                 "Master Bathrooms must have pretty cool [Showers], right?", "Go back to the [Elevator]."};
@@ -484,6 +490,7 @@ public class hauntedHouse {
                     break;
                 default:
                     System.out.println("null value. Did you close the window? Program terminated.");
+                    playerAlive = false;
             }
         }
     }
@@ -494,7 +501,7 @@ public class hauntedHouse {
      */    
     public void firstBedroom(){
         elevatorCalled = false; 
-        while(playerAlive == true || elevatorCalled == false){
+        while(playerAlive == true && elevatorCalled == false){
             String[] choicesBed1FromStairs = {
                 "Wow, a [Rocking Chair] is so fun, just take a lil seat...", 
                 "Sweet, you've never seen a [Window] before!",
@@ -530,6 +537,7 @@ public class hauntedHouse {
                     break;
                 default:
                     System.out.println("null value. Did you close the window? Program terminated.");
+                    playerAlive = false;
             }
         }
     }
@@ -541,7 +549,7 @@ public class hauntedHouse {
      */    
     public void secondBedroom(){
         elevatorCalled = false; 
-        while(playerAlive == true || elevatorCalled == false){
+        while(playerAlive == true && elevatorCalled == false){
             String[] choicesBed2FromStairs = {
                 "Let's check out this totally inconspicuous [Doll House]!", 
                 "Let's see what's in this [Dresser].",
@@ -577,6 +585,7 @@ public class hauntedHouse {
                     break;
                 default:
                     System.out.println("null value. Did you close the window? Program terminated.");
+                    playerAlive = false;
             }
         }
     }
@@ -587,7 +596,7 @@ public class hauntedHouse {
      */    
     public void Bathroom1(){
         elevatorCalled = false; 
-        while(playerAlive == true || elevatorCalled == false){
+        while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
             String[] choicesB1 = {"Turn to the [Mirror]...", "Maybe something is behind the [Shower] curtain...?", "Go back to the [Elevator]."};
 
@@ -619,13 +628,14 @@ public class hauntedHouse {
                     Elevator();
                     break;
                 default:
-                    System.out.println("null value. Did you close the window? Program terminated.");    
+                    System.out.println("null value. Did you close the window? Program terminated.");
+                    playerAlive = false;
             }
         }
     }
     public void Bathroom2(){
         elevatorCalled = false; 
-        while(playerAlive == true || elevatorCalled == false){
+        while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
             String[] choicesB2 = {"Turn to the [Mirror]...", "Maybe something is behind the [Shower] curtain...?", "Go back to the [Elevator]."};
 
@@ -657,7 +667,8 @@ public class hauntedHouse {
                     Elevator();
                     break;
                 default:
-                    System.out.println("null value. Did you close the window? Program terminated.");    
+                    System.out.println("null value. Did you close the window? Program terminated.");
+                    playerAlive = false;
             }
         }
     }
