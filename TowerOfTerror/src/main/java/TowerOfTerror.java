@@ -10,7 +10,7 @@
 
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
-public class hauntedHouse {
+public class TowerOfTerror {
     private String[] backpacklist = {"Empty","Chest","Candelabra","Refrigerator","Cabinet","Dusty recipe box",
             "Broom","Mirror","Shower","Rocking Chair","Window","Doll House",
             "Dresser","Jewelry Box","Intricate Oil Lamp"};
@@ -59,6 +59,12 @@ public class hauntedHouse {
     the Tower of Terror, they start at the Front Door.
     */
     private boolean playerStart = true;
+    
+    /*
+    If true, program terminates.
+    Happens when player hits x or cancel.
+    */
+    private boolean XorCancel = false;
 
     
     
@@ -81,12 +87,12 @@ public class hauntedHouse {
             namePC = "No-named BugCat";
          }
        
-       JOptionPane.showConfirmDialog(null,"Welcome to the Tower of Terror, "+namePC+".\n"
-         + "Let us enter...", "Let's go!", 2, JOptionPane.INFORMATION_MESSAGE, iconSweaty);
-
+       int cancelCheck = JOptionPane.showConfirmDialog(null,"Welcome to the Tower of Terror, "+namePC+".\n"
+         + "Let us enter..."
+               + "\n\n[Hit Cancel at anytime to stop the game!]", "Let's go!", 2, JOptionPane.INFORMATION_MESSAGE, iconSweaty);
     
     //Calling the Elevator here.
-    Elevator();
+    if(cancelCheck != JOptionPane.CANCEL_OPTION){Elevator();}
     }
     
     /**
@@ -130,8 +136,8 @@ public class hauntedHouse {
                }
                //If all 13 floors were explored, player dies.
                if(allFloorsExplored == 13){playerAlive=false;
-               JOptionPane.showConfirmDialog(null,"You're still here, "+namePC+"."
-                + "?\nYou've explored every room and unlike you, we can't be here all day.\n\nYou die in the elevator.", 
+               JOptionPane.showConfirmDialog(null,"You're still here, "+namePC
+                + "?\nYou've explored every room and unlike you, we can't be here all day.\n\n"+namePC+" dies in the elevator.", 
                        "Ripperoni, Pepperoni: Game Over", 2, JOptionPane.INFORMATION_MESSAGE, iconSweaty);
                }
                else{
@@ -148,7 +154,7 @@ public class hauntedHouse {
                     int floorChosen = chosenDestination(elevatorFloors, inputElevator);
                     switch(floorChosen){
                         case 0: 
-                             //Basement();
+                             Basement();
                             break;
                         case 1:
                              FrontDoor();
@@ -184,7 +190,11 @@ public class hauntedHouse {
                              MasterBedroom();
                             break;
                         case 12:
-                             //Attic();
+                             Attic();
+                            break;
+                        default:
+                            System.out.println("Program terminated.");
+                            XorCancel=true;
                             break;
                         }
                     
@@ -195,7 +205,7 @@ public class hauntedHouse {
                
                
            }
-       }while((playerAlive==true)&&(playerEscaped==false));
+       }while((playerAlive==true)&&(playerEscaped==false)&&(XorCancel==false));
                /*if the player is alive
                and the player has not escaped,
                the game is not over. 
@@ -240,8 +250,9 @@ public class hauntedHouse {
                 //Elevator();
                 break;
             default:
-                System.out.println("null value. Did you close the window? Program terminates.");
-                playerAlive = false;
+                System.out.println("Program terminated.");
+                    XorCancel = true; //Break elevator loop if X or Cancel was hit.
+                    elevatorCalled = true; //Just to break this loop.
         }
     }
     /**
@@ -276,8 +287,9 @@ public class hauntedHouse {
                     elevatorCalled = true;
                     break;
                 default:
-                    System.out.println("null value. Did you close the window? Program terminated.");
-                    playerAlive = false;
+                    System.out.println("Program terminated.");
+                    XorCancel = true; //Break elevator loop if X or Cancel was hit.
+                    elevatorCalled = true; //Just to break this loop.
             }
         }
     }
@@ -315,8 +327,9 @@ public class hauntedHouse {
                     elevatorCalled = true;
                     break;
                 default:
-                    System.out.println("null value. Did you close the window? Program terminated.");
-                    playerAlive = false;
+                    System.out.println("Program terminated.");
+                    XorCancel = true; //Break elevator loop if X or Cancel was hit.
+                    elevatorCalled = true; //Just to break this loop.
             }
         }
     }
@@ -361,8 +374,9 @@ public class hauntedHouse {
                     elevatorCalled = true;
                    break;
                default:
-                   System.out.println("null value. Did you close the window? Program terminated.");
-                   playerAlive = false;
+                   System.out.println("Program terminated.");
+                    XorCancel = true; //Break elevator loop if X or Cancel was hit.
+                    elevatorCalled = true; //Just to break this loop.
            }
         }
     }
@@ -406,8 +420,9 @@ public class hauntedHouse {
                     elevatorCalled = true;
                     break;
                 default:
-                    System.out.println("null value. Did you close the window? Program terminated.");
-                    playerAlive = false;
+                    System.out.println("Program terminated.");
+                    XorCancel = true; //Break elevator loop if X or Cancel was hit.
+                    elevatorCalled = true; //Just to break this loop.
             }
         }
     }
@@ -448,8 +463,9 @@ public class hauntedHouse {
                     elevatorCalled = true;
                     break;
                 default:
-                    System.out.println("null value. Did you close the window? Program terminated.");
-                    playerAlive = false;
+                    System.out.println("Program terminated.");
+                    XorCancel = true; //Break elevator loop if X or Cancel was hit.
+                    elevatorCalled = true; //Just to break this loop.
             }
         }
     }
@@ -492,8 +508,9 @@ public class hauntedHouse {
                     elevatorCalled = true;
                     break;
                 default:
-                    System.out.println("null value. Did you close the window? Program terminated.");
-                    playerAlive = false;
+                    System.out.println("Program terminated.");
+                    XorCancel = true; //Break elevator loop if X or Cancel was hit.
+                    elevatorCalled = true; //Just to break this loop.
             }
         }
     }
@@ -539,8 +556,9 @@ public class hauntedHouse {
                     elevatorCalled = true;
                     break;
                 default:
-                    System.out.println("null value. Did you close the window? Program terminated.");
-                    playerAlive = false;
+                    System.out.println("Program terminated.");
+                    XorCancel = true; //Break elevator loop if X or Cancel was hit.
+                    elevatorCalled = true; //Just to break this loop.
             }
         }
     }
@@ -587,8 +605,9 @@ public class hauntedHouse {
                     elevatorCalled = true;
                     break;
                 default:
-                    System.out.println("null value. Did you close the window? Program terminated.");
-                    playerAlive = false;
+                    System.out.println("Program terminated.");
+                    XorCancel = true; //Break elevator loop if X or Cancel was hit.
+                    elevatorCalled = true; //Just to break this loop.
             }
         }
     }
@@ -631,8 +650,9 @@ public class hauntedHouse {
                     elevatorCalled = true;
                     break;
                 default:
-                    System.out.println("null value. Did you close the window? Program terminated.");
-                    playerAlive = false;
+                    System.out.println("Program terminated.");
+                    XorCancel = true; //Break elevator loop if X or Cancel was hit.
+                    elevatorCalled = true; //Just to break this loop.
             }
         }
     }
@@ -670,12 +690,176 @@ public class hauntedHouse {
                     elevatorCalled = true;
                     break;
                 default:
-                    System.out.println("null value. Did you close the window? Program terminated.");
-                    playerAlive = false;
+                    System.out.println("Program terminated.");
+                    XorCancel = true; //Break elevator loop if X or Cancel was hit.
+                    elevatorCalled = true; //Just to break this loop.
+                    break;
             }
         }
     }
     
+      
+    /*Yasmani, edited by Tiff*/
+ public void Attic(){
+     elevatorCalled = false;
+     //String array of choices for the JOptionPane
+        String[] choicesAttic = {"Try to open the [Chest].",
+            "Go back to the [Elevator]."};
+        //JOptionPane with String conversion from object type.
+        String inputAttic = (String) JOptionPane.showInputDialog(null, "You are in the Attic, " + namePC +
+            ". \nAround the room, many objects look old and covered in dust.\n"
+                    + "But in the corner, you see an old rusty [Chest]."
+                    + "\nLook in the [Chest] or just go back to the [Elevator]?",
+                "The Attic",
+                 JOptionPane.QUESTION_MESSAGE,
+            null,
+           choicesAttic,
+          choicesAttic[0]);
+        //Calls chosenDestination, which returns the index of the chosen location
+        //after being passed in the returned string from JOptionPane,
+        //and the string Array of choices
+        int nextActionIndex = chosenDestination(choicesAttic, inputAttic);
+        switch(nextActionIndex){
+            case 0:
+                //CHECK IF THEY HAVE BASEMENT KEY
+                //YES: OPEN CHEST, CALL OTHER KEY
+                //NO: CHEST IS LOCKED
+                break;
+            case 1:
+                elevatorCalled = true;
+                break;
+            default:
+                System.out.println("Program terminated.");
+                XorCancel = true;
+                elevatorCalled = true; //Just to break this loop.
+                break;
+               }
+ }
+ 
+            //Modified by Yasmani Valdes 6214495 //
+    public void Basement(){
+       elevatorCalled = false;
+              //I show a map here to provide some clarity on the options.
+            ImageIcon mapBasement = new ImageIcon("src/main/java/img/stairs-top.gif");
+            String[] choicesBasement = {"The [Door] to your right.",
+                "The [Door] to your left.","Choose another floor in the [Elevator]."
+                };
+            
+              while(elevatorCalled == false && playerAlive == true){
+              //JOptionPane with String conversion from object type.
+            String inputBasement = (String) JOptionPane.showInputDialog(null,"You are at the bottom floor of the Tower, the Basement."+
+                "\nThe elevator door opens, and you realize there are two [Doors].\n"+
+                "Which one do you choose?",
+                "The Basement",
+                JOptionPane.QUESTION_MESSAGE,
+                mapBasement,
+                choicesBasement,
+                choicesBasement[0]);
+            //Calls chosenDestination, which returns the index of the chosen location
+             //after being passed in the returned string from JOptionPane,
+            //and the string Array of choices
+            
+            int nextActionIndex = chosenDestination(choicesBasement, inputBasement);
+            switch(nextActionIndex){
+                case 0: //Bedroom 1
+                    BoilerRoom();
+                    break;
+                case 1:             
+                    StorageRoom();
+                    break;
+                case 2:
+                    elevatorCalled = true;
+                    break;
+                default:
+                    System.out.println("Program terminated.");
+                    XorCancel = true; //Ends game entirely.
+                    elevatorCalled = true; ///Just to break this loop.
+                    break;
+                    }
+              }
+            
+    }
+        
+    /**
+     *
+     */
+     
+    
+public void BoilerRoom(){
+    elevatorCalled = false;
+     //String array of choices for the JOptionPane
+        String[] choicesBoilerRoom = {"Go through the Elevator to the [Storage Room].",
+            "Go back to the [Elevator].",  
+        };
+        //JOptionPane with String conversion from object type.
+        while(elevatorCalled == false && playerAlive == true){
+            String inputBoilerRoom = (String) JOptionPane.showInputDialog(null, "You are in the Boiler Room, " + namePC +
+            ". \nIt's an empty room with nothing interesting.\n"
+                    + "\nMaybe you should checkout the other [Room] or go back to the [Elevator]?",
+                    "The Basement's Boiler Room",
+            JOptionPane.QUESTION_MESSAGE,
+            null,
+           choicesBoilerRoom,
+            choicesBoilerRoom[0]);
+        //Calls chosenDestination, which returns the index of the chosen location
+        //after being passed in the returned string from JOptionPane,
+        //and the string Array of choices
+        int nextActionIndex = chosenDestination(choicesBoilerRoom, inputBoilerRoom);
+        switch(nextActionIndex){
+            case 0:
+                StorageRoom();
+                break;
+            case 1:
+                elevatorCalled = true;
+                break;
+            default:
+                elevatorCalled = true; //Just to break this loop.
+                System.out.println("Program terminated.");
+                XorCancel = true; //Ends game entirely.
+                break;
+               }
+        }
+}
+public void StorageRoom(){
+     //String array of choices for the JOptionPane
+     elevatorCalled = false;
+     
+        String[] choicesStorageRoom = {"Check out the [Chest].","Go to the [Boiler Room] through the Elevator.",
+            "Go to the [Elevator]"};
+        //OptionPane with String conversion from object type.  
+        while(elevatorCalled == false && playerAlive == true){
+            String inputStorageRoom = (String) JOptionPane.showInputDialog(null, "You are in the Storage Room, " + namePC +
+            ". \nIt's eerily quiet. Amongst the clutter, you see a [Chest].\n"
+                + "\nTake a lil peek inside the [Chest] or maybe go through the other Basement [Door], through the Elevator?\n"
+                + "Or just go back to pushing buttons and see where it takes you in the [Elevator].",
+                "The Basement's Storage Room",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                choicesStorageRoom,
+                choicesStorageRoom[0]);
+            //Calls chosenDestination, which returns the index of the chosen location
+            //after being passed in the returned string from JOptionPane,
+            //and the string Array of choices
+            int nextActionIndex = chosenDestination(choicesStorageRoom, inputStorageRoom);
+            switch(nextActionIndex){
+            case 0:
+                //CHEST CASE BELONGS HERE WITH KEY FOR THE ATTIC
+                break;
+            case 1:
+            //Backpackindex = Refridgerator
+                BoilerRoom();
+                break;
+            case 2:
+                elevatorCalled = true;
+                break;
+            default:
+                System.out.println("Program terminated.");
+                XorCancel = true; //Ends Game entirely.
+                elevatorCalled = true; //Just to break this loop.
+                break;
+               }
+        }
+}
     
     public void Backpack(){
         String backpackMessage = "\nThe "+backpacklist[backpackIndex]+" rests in your backpack..."
