@@ -10,7 +10,7 @@
 
 public class testMain {
         public static void main (String [] args){
-        hauntedHouse tester = new hauntedHouse();
+        TowerOfTerror tester = new TowerOfTerror();
         
         tester.Enter();
         }
