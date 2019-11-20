@@ -8,12 +8,15 @@
 // or the derivative of the work of someone else.
 //********************************************************************************
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 public class TowerOfTerror {
-    private String[] backpacklist = {"Empty","Chest","Candelabra","Refrigerator","Cabinet","Dusty recipe box",
-            "Broom","Mirror","Shower","Rocking Chair","Window","Doll House",
-            "Dresser","Jewelry Box","Intricate Oil Lamp"};
+//    private String[] backpacklist = {"Empty","Chest","Candelabra","Refrigerator","Cabinet","Dusty recipe box",
+//            "Broom","Mirror","Shower","Rocking Chair","Window","Doll House",
+//            "Dresser","Jewelry Box","Intricate Oil Lamp"};
+     Set<String> Backpack = new HashSet<String> ();
     
     //Stores the player's name.
     private String namePC;
@@ -224,7 +227,7 @@ public class TowerOfTerror {
         
         
         //String array of choices for the JOptionPane
-       String[] choices = {"Go into the [Elevator]"};
+       String[] choices = {"Go into the [Elevator]","Check Backpack"};
        
        //ImageIcon object for the JOptionPane with image file location. 
        ImageIcon iconFD = new ImageIcon("src/main/java/img/bugcatmap1.png");
@@ -249,6 +252,9 @@ public class TowerOfTerror {
             case 0:
                 //Elevator();
                 break;
+            case 1:
+                JOptionPane.showMessageDialog(null, "You Have " + Backpack 
+             + " in your Backpack");
             default:
                 System.out.println("Program terminated.");
                     XorCancel = true; //Break elevator loop if X or Cancel was hit.
@@ -263,7 +269,7 @@ public class TowerOfTerror {
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
-           String[] choices = {"Open the [Chest].", "Go back into the [Elevator]."};
+           String[] choices = {"Open the [Chest].", "Go back into the [Elevator].","Check Backpack"};
 
            //JOptionPane with String conversion from object type.
             String inputFD = (String) JOptionPane.showInputDialog(null, "Welcome to the Living Room, " + namePC +
@@ -281,11 +287,14 @@ public class TowerOfTerror {
             switch(nextActionIndex){
                 case 0: //BackpackIndex = chest
                     backpackIndex = 1;
-                    Backpack();
+                    Backpack(backpackIndex);
                     break;
                 case 1:
                     elevatorCalled = true;
                     break;
+                case 2:
+                JOptionPane.showMessageDialog(null, "You Have " + Backpack 
+             + " in your Backpack");
                 default:
                     System.out.println("Program terminated.");
                     XorCancel = true; //Break elevator loop if X or Cancel was hit.
@@ -301,7 +310,8 @@ public class TowerOfTerror {
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
-            String[] choicesDR = {"You reach out to the flickering [Candelabra]...", "Go back into the [Elevator]."};
+            String[] choicesDR = {"You reach out to the flickering [Candelabra]...",
+                "Go back into the [Elevator].","Check Backpack"};
 
             //JOptionPane with String conversion from object type.
             String inputDR = (String) JOptionPane.showInputDialog(null, "Welcome to the Dining Room, " + namePC +
@@ -321,11 +331,14 @@ public class TowerOfTerror {
                 case 0:
                 //Backpackindex = candelabra
                     backpackIndex = 2;
-                    Backpack();
+                    Backpack(backpackIndex);
                     break;
                 case 1:
                     elevatorCalled = true;
                     break;
+                case 2:
+                JOptionPane.showMessageDialog(null, "You Have " + Backpack 
+             + " in your Backpack");
                 default:
                     System.out.println("Program terminated.");
                     XorCancel = true; //Break elevator loop if X or Cancel was hit.
@@ -343,7 +356,7 @@ public class TowerOfTerror {
             //String array of choices for the JOptionPane
            String[] choicesKIT = {"It's rude to open someone else's [Refridgerator].",
                "You decide to take a little peek into the [Cabinet]...",
-               "Go back into the [Elevator]"
+               "Go back into the [Elevator]","Check Backpack"
            };
 
            //JOptionPane with String conversion from object type.
@@ -364,15 +377,18 @@ public class TowerOfTerror {
                case 0:
                //Backpackindex = Refridgerator
                    backpackIndex = 3;
-                   Backpack();
+                   Backpack(backpackIndex);
                    break;
                case 1: //Backpackindex = cabinet 
                    backpackIndex = 4;
-                   Backpack();
+                   Backpack(backpackIndex);
                    break;
                case 2:
                     elevatorCalled = true;
                    break;
+                case 3:
+                JOptionPane.showMessageDialog(null, "You Have " + Backpack 
+             + " in your Backpack");
                default:
                    System.out.println("Program terminated.");
                     XorCancel = true; //Break elevator loop if X or Cancel was hit.
@@ -390,7 +406,7 @@ public class TowerOfTerror {
              //String array of choices for the JOptionPane
             String[] choicesPAN = {"Ah, maybe some secrets in this [Dusty Recipe Box].",
                 "Welp. Might as well do some light cleaning with the [Broom].",
-                "Go back to the [Elevator]."};
+                "Go back to the [Elevator].","Check Backpack"};
 
             //JOptionPane with String conversion from object type.
             String inputPAN = (String) JOptionPane.showInputDialog(null, "Welcome to the Pantry, " + namePC +
@@ -409,16 +425,19 @@ public class TowerOfTerror {
             switch(nextActionIndex){
                 case 0: //BackpackIndex = Dusty recipe box
                     backpackIndex =5;
-                    Backpack();
+                    Backpack(backpackIndex);
                     break;
                 case 1:
                 //Backpackindex = Broom
                     backpackIndex = 6;
-                    Backpack();
+                    Backpack(backpackIndex);
                     break;
                 case 2:
                     elevatorCalled = true;
                     break;
+                case 3:
+                JOptionPane.showMessageDialog(null, "You Have " + Backpack 
+             + " in your Backpack");
                 default:
                     System.out.println("Program terminated.");
                     XorCancel = true; //Break elevator loop if X or Cancel was hit.
@@ -437,7 +456,7 @@ public class TowerOfTerror {
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
-            String[] choicesMBed = {"Anything good to pawn in the [Jewelry Box]?", "Go back to the [Elevator]."};
+            String[] choicesMBed = {"Anything good to pawn in the [Jewelry Box]?", "Go back to the [Elevator].","Check Backpack"};
 
             //JOptionPane with String conversion from object type.
             String inputMBed = (String) JOptionPane.showInputDialog(null, "Welcome to the Master Bedroom, " + namePC +
@@ -457,11 +476,14 @@ public class TowerOfTerror {
                 case 0:
                 //Backpackindex = Jewelry Box
                     backpackIndex = 13;
-                    Backpack();
+                    Backpack(backpackIndex);
                     break;
                 case 1:
                     elevatorCalled = true;
                     break;
+                case 2:
+                JOptionPane.showMessageDialog(null, "You Have " + Backpack 
+             + " in your Backpack");    
                 default:
                     System.out.println("Program terminated.");
                     XorCancel = true; //Break elevator loop if X or Cancel was hit.
@@ -477,7 +499,8 @@ public class TowerOfTerror {
         while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
             String[] choicesMBath = {"An [Intricate Oil Lamp]? ...Like an oil diffuser?", 
-                "Master Bathrooms must have pretty cool [Showers], right?", "Go back to the [Elevator]."};
+                "Master Bathrooms must have pretty cool [Showers], right?", 
+                "Go back to the [Elevator].","Check Backpack"};
 
             //JOptionPane with String conversion from object type.
             String inputMBath = (String) JOptionPane.showInputDialog(null, "Welcome to the Master Bathroom, " + namePC +
@@ -497,16 +520,19 @@ public class TowerOfTerror {
                 case 0:
                 //Backpackindex = Intricate Oil Lamp
                     backpackIndex = 14;
-                    Backpack();
+                    Backpack(backpackIndex);
                     break;
                 case 1://Backpackindex = Shower
                     backpackIndex = 8;
                     bathroomShower = 2;
-                    Backpack();
+                    Backpack(backpackIndex);
                     break;
                 case 2: 
                     elevatorCalled = true;
                     break;
+                case 3:
+                JOptionPane.showMessageDialog(null, "You Have " + Backpack 
+             + " in your Backpack");
                 default:
                     System.out.println("Program terminated.");
                     XorCancel = true; //Break elevator loop if X or Cancel was hit.
@@ -525,7 +551,7 @@ public class TowerOfTerror {
             String[] choicesBed1FromStairs = {
                 "Wow, a [Rocking Chair] is so fun, just take a lil seat...", 
                 "Sweet, you've never seen a [Window] before!",
-                "Go back to the [Elevator]."};
+                "Go back to the [Elevator].","Check Backpack"};
 
                   //JOptionPane with String conversion from object type.
             String inputBed1FromStairs = (String) JOptionPane.showInputDialog(null,"Welcome to the First 2nd-Floor Bedroom "
@@ -546,15 +572,18 @@ public class TowerOfTerror {
             switch(nextActionIndex){
                 case 0://Backpack Index = rocking chair
                     backpackIndex = 9;
-                    Backpack();
+                    Backpack(backpackIndex);
                     break;
                 case 1://Backpack Index = Window
                     backpackIndex = 10;
-                    Backpack();
+                    Backpack(backpackIndex);
                     break;
                 case 2:
                     elevatorCalled = true;
                     break;
+                case 3:
+                JOptionPane.showMessageDialog(null, "You Have " + Backpack 
+             + " in your Backpack");
                 default:
                     System.out.println("Program terminated.");
                     XorCancel = true; //Break elevator loop if X or Cancel was hit.
@@ -574,7 +603,8 @@ public class TowerOfTerror {
             String[] choicesBed2FromStairs = {
                 "Let's check out this totally inconspicuous [Doll House]!", 
                 "Let's see what's in this [Dresser].",
-                "Go back to the [Elevator]."};
+                "Go back to the [Elevator]."
+            ,"Check Backpack"};
 
             //JOptionPane with String conversion from object type.
             String inputBed2FromStairs = (String) JOptionPane.showInputDialog(null,"Welcome to the Second 2nd-Floor Bedroom "
@@ -595,15 +625,18 @@ public class TowerOfTerror {
             switch(nextActionIndex){
                 case 0://Backpack Index = Doll House
                     backpackIndex = 11;
-                    Backpack();
+                    Backpack(backpackIndex);
                     break;
                 case 1://Backpack Index = Dresser
                     backpackIndex = 12;
-                    Backpack();
+                    Backpack(backpackIndex);
                     break;
                 case 2:
                     elevatorCalled = true;
                     break;
+                case 3:
+                JOptionPane.showMessageDialog(null, "You Have " + Backpack 
+             + " in your Backpack");
                 default:
                     System.out.println("Program terminated.");
                     XorCancel = true; //Break elevator loop if X or Cancel was hit.
@@ -620,7 +653,9 @@ public class TowerOfTerror {
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
-            String[] choicesB1 = {"Turn to the [Mirror]...", "Maybe something is behind the [Shower] curtain...?", "Go back to the [Elevator]."};
+            String[] choicesB1 = {"Turn to the [Mirror]...", 
+                "Maybe something is behind the [Shower] curtain...?", 
+                "Go back to the [Elevator].","Check Backpack"};
 
             //JOptionPane with String conversion from object type.
             String inputB1stFloor = (String) JOptionPane.showInputDialog(null, "Welcome to the Living Room Bathroom, " + namePC +
@@ -639,16 +674,19 @@ public class TowerOfTerror {
                 case 0:
                     //Backpackindex = Mirror;
                     backpackIndex = 7;
-                    Backpack();
+                    Backpack(backpackIndex);
                     break;
                 case 1:
                     //Backpackindex = shower
                     backpackIndex = 8;
-                    Backpack();
+                    Backpack(backpackIndex);
                     break;
                 case 2:
                     elevatorCalled = true;
                     break;
+                case 3:
+                JOptionPane.showMessageDialog(null, "You Have " + Backpack 
+             + " in your Backpack");
                 default:
                     System.out.println("Program terminated.");
                     XorCancel = true; //Break elevator loop if X or Cancel was hit.
@@ -660,7 +698,9 @@ public class TowerOfTerror {
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
-            String[] choicesB2 = {"Turn to the [Mirror]...", "Maybe something is behind the [Shower] curtain...?", "Go back to the [Elevator]."};
+            String[] choicesB2 = {"Turn to the [Mirror]...", 
+                "Maybe something is behind the [Shower] curtain...?",
+                "Go back to the [Elevator].","Check Backpack"};
 
             //JOptionPane with String conversion from object type.
             String inputB1stFloor = (String) JOptionPane.showInputDialog(null, "Welcome to the Living Room Bathroom, " + namePC +
@@ -679,16 +719,19 @@ public class TowerOfTerror {
                 case 0:
                     //Backpackindex = Mirror;
                     backpackIndex = 7;
-                    Backpack();
+                    Backpack(backpackIndex);
                     break;
                 case 1:
                     //Backpackindex = shower
                     backpackIndex = 8;
-                    Backpack();
+                    Backpack(backpackIndex);
                     break;
                 case 2:
                     elevatorCalled = true;
                     break;
+                case 3:
+                JOptionPane.showMessageDialog(null, "You Have " + Backpack 
+             + " in your Backpack");
                 default:
                     System.out.println("Program terminated.");
                     XorCancel = true; //Break elevator loop if X or Cancel was hit.
@@ -704,7 +747,7 @@ public class TowerOfTerror {
      elevatorCalled = false;
      //String array of choices for the JOptionPane
         String[] choicesAttic = {"Try to open the [Chest].",
-            "Go back to the [Elevator]."};
+            "Go back to the [Elevator].","Check Backpack"};
         //JOptionPane with String conversion from object type.
         String inputAttic = (String) JOptionPane.showInputDialog(null, "You are in the Attic, " + namePC +
             ". \nAround the room, many objects look old and covered in dust.\n"
@@ -728,6 +771,9 @@ public class TowerOfTerror {
             case 1:
                 elevatorCalled = true;
                 break;
+            case 2:
+                JOptionPane.showMessageDialog(null, "You Have " + Backpack 
+             + " in your Backpack");
             default:
                 System.out.println("Program terminated.");
                 XorCancel = true;
@@ -743,7 +789,7 @@ public class TowerOfTerror {
             ImageIcon mapBasement = new ImageIcon("src/main/java/img/stairs-top.gif");
             String[] choicesBasement = {"The [Door] to your right.",
                 "The [Door] to your left.","Choose another floor in the [Elevator]."
-                };
+                ,"Check Backpack"};
             
               while(elevatorCalled == false && playerAlive == true){
               //JOptionPane with String conversion from object type.
@@ -770,6 +816,9 @@ public class TowerOfTerror {
                 case 2:
                     elevatorCalled = true;
                     break;
+                case 3:
+                JOptionPane.showMessageDialog(null, "You Have " + Backpack 
+             + " in your Backpack");
                 default:
                     System.out.println("Program terminated.");
                     XorCancel = true; //Ends game entirely.
@@ -789,7 +838,7 @@ public void BoilerRoom(){
     elevatorCalled = false;
      //String array of choices for the JOptionPane
         String[] choicesBoilerRoom = {"Go through the Elevator to the [Storage Room].",
-            "Go back to the [Elevator].",  
+            "Go back to the [Elevator].","Check Backpack"  
         };
         //JOptionPane with String conversion from object type.
         while(elevatorCalled == false && playerAlive == true){
@@ -812,6 +861,9 @@ public void BoilerRoom(){
             case 1:
                 elevatorCalled = true;
                 break;
+            case 2:
+                JOptionPane.showMessageDialog(null, "You Have " + Backpack 
+             + " in your Backpack");
             default:
                 elevatorCalled = true; //Just to break this loop.
                 System.out.println("Program terminated.");
@@ -825,7 +877,7 @@ public void StorageRoom(){
      elevatorCalled = false;
      
         String[] choicesStorageRoom = {"Check out the [Chest].","Go to the [Boiler Room] through the Elevator.",
-            "Go to the [Elevator]"};
+            "Go to the [Elevator]","Check Backpack"};
         //OptionPane with String conversion from object type.  
         while(elevatorCalled == false && playerAlive == true){
             String inputStorageRoom = (String) JOptionPane.showInputDialog(null, "You are in the Storage Room, " + namePC +
@@ -852,6 +904,9 @@ public void StorageRoom(){
             case 2:
                 elevatorCalled = true;
                 break;
+            case 3:
+                JOptionPane.showMessageDialog(null, "You Have " + Backpack 
+             + " in your Backpack");
             default:
                 System.out.println("Program terminated.");
                 XorCancel = true; //Ends Game entirely.
@@ -860,61 +915,70 @@ public void StorageRoom(){
                }
         }
 }
-    
-    public void Backpack(){
-        String backpackMessage = "\nThe "+backpacklist[backpackIndex]+" rests in your backpack..."
-                + "\nCya, "+namePC+"!";
+    // Modified by Naadir Kirlew
+    public String Backpack(int backpackIndex){
+        
         String itemMessage= "";
         ImageIcon lastLocation = new ImageIcon("src/main/java/img/bcaClapCheer.gif"); 
-
         switch(backpackIndex){
                     //Chest case
             case 1: itemMessage = "A Ghost escapes from the Chest and scares you to death."
                     + "\nYou die.\nF.";
                     lastLocation = new ImageIcon("src/main/java/img/livingroom.gif");
+                    Backpack.add("Chest");
                     break;
                     //Candelabra case
             case 2: itemMessage = "Suddenly the Candelabra flares! You see a death shadow."
                     + "\nThen you die.";
                     lastLocation = new ImageIcon("src/main/java/img/diningroom.gif");
+                    Backpack.add("Candelabra");
                     break;
                     //Refridgerator case
             case 3: itemMessage = "You open the refridgerator and see someone's head.\n"
                     + "The jar slowly unfogs... it's yours.";
                     lastLocation = new ImageIcon("src/main/java/img/kitchen.gif");
+                    Backpack.add("Jar from the Refridgerator");
                     break;
                     //Cabinet case
             case 4: itemMessage = "The dishes and glasses fly out of the cabinet and hit you in the face."
                     + "\n You die.";
                     lastLocation = new ImageIcon("src/main/java/img/kitchen.gif");
+                    Backpack.add("Broken Glass from the Cabinet");
                     break;
                     //Dusty recipe box case
             case 5: itemMessage = "You open the box and find some pretty decent recipes.\n"
                     + "You don't die. But you will eventually.";
                     lastLocation = new ImageIcon("src/main/java/img/pantry1.gif");
+                    Backpack.add("Recipes from the Dusty Recipe Box");
                     break;
                     //Broom case
             case 6: itemMessage = "As soon as you grasp the broom, the room explodes.\n"
                     + "RIP.";
                     lastLocation = new ImageIcon("src/main/java/img/pantry2.gif");
+                    Backpack.add("Haunted Broom");
                     break;
                     //Mirror case
             case 7: itemMessage = "You look in the mirror. You look fantastic.\n"
                     + "Keep doing you. Great job man.";
                     if(livingroomMirror){
                         lastLocation = new ImageIcon("src/main/java/img/bathroommirror.gif");
-                        }else{lastLocation = new ImageIcon("src/main/java/img/bathroommirror-bed.gif");}
+                        Backpack.add("Mirror");
+                        }else{lastLocation = new ImageIcon("src/main/java/img/bathroommirror-bed.gif");
+                        Backpack.add("Mirror");}
                     break;
                     //Shower case
             case 8: itemMessage = "The shower suddenly turns on. You get drenched.\n"
                     + "You kinda needed it. How considerate.";
                     switch(bathroomShower){
                         case 0: lastLocation = new ImageIcon("src/main/java/img/shower.gif");
-                            break;
+                        Backpack.add("Spooky Water from the Shower");    
+                        break;
                         case 1: lastLocation = new ImageIcon("src/main/java/img/shower-bedbath.gif");
-                            break;
+                        Backpack.add("Spooky Water from the Shower");
+                        break;
                         case 2: lastLocation = new ImageIcon("src/main/java/img/shower-master.gif");
-                            break;
+                        Backpack.add("Spooky Water from the Shower");
+                        break;
                     }
                     break;
                     //Rocking chair case
@@ -922,38 +986,51 @@ public void StorageRoom(){
                     + "You fall to the floor. Then through the floor.\n"
                     + "Through the ground. Straight to hell.";
                     lastLocation = new ImageIcon("src/main/java/img/bed1.gif");
+                    Backpack.add("Wood Splinters from the Rocking Chair");
                     break;
                     //Window
             case 10: itemMessage = "You fall through the Window. Who couldve seen this coming?";
                     lastLocation = new ImageIcon("src/main/java/img/bed1-1.gif");
+                    Backpack.add("Broken Glass from the Window");
                     break;
                     //Doll House
             case 11: itemMessage = "You lose track of a few hours playing with the dolls.\n"
                     + "Really sends you back. Such nostalgia. What a good time.";
                     lastLocation = new ImageIcon("src/main/java/img/bed2-1.gif");
+                    Backpack.add("Haunted Dolls");
                     break;
                     //Dresser
             case 12: itemMessage = "A ghost flies out of the dresser. It's dressed great.\n"
                     + "It still kills you though.";
                     lastLocation = new ImageIcon("src/main/java/img/dresser.gif");
+                    Backpack.add("Pet Ghost (?)");
                     break;
                     //Jewelry Box case
             case 13: itemMessage = "You've opened Pandora's box. The end of the world is neigh.\n"
                     + "No one blames you, just capitalism. Justly.";
                     lastLocation = new ImageIcon("src/main/java/img/masterbedroom.gif");
+                    Backpack.add("Pandora's Now Empty Box");
                     break;
                     //intricate oil lamp case
             case 14: itemMessage = "You're right. It's an oil diffuser.\n"
                     + "In this dark corner of the Haunted House,\nyou find true relaxation "
                     + "in the scent \"Lemon Grass\"."+"\nNice.";
                     lastLocation = new ImageIcon("src/main/java/img/oillamp.gif");
+                    Backpack.add("Oil Diffuser");
                     break;
             default: 
                   System.out.println("Empty. Shouldn't be called. Program terminates.");
+                  
         }
         
+        String backpackMessage = "\nThe "+Backpack +" rests in your backpack..."
+                + "\nCya, "+namePC+"!";
+        
             JOptionPane.showConfirmDialog(null,itemMessage+"\n"+backpackMessage,
-                    "Game Over", 2, JOptionPane.ERROR_MESSAGE, lastLocation);     
+                    "Game Over", 2, JOptionPane.ERROR_MESSAGE, lastLocation);   
+            
+            
+    return backpackMessage;
     }
     
 
@@ -974,4 +1051,6 @@ public void StorageRoom(){
         }
         return choicesIndex;
     }
+    
+
 }
