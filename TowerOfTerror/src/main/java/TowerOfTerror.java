@@ -255,6 +255,7 @@ public class TowerOfTerror {
             case 1:
                 JOptionPane.showMessageDialog(null, "You Have " + Backpack 
              + " in your Backpack");
+                break;
             default:
                 System.out.println("Program terminated.");
                     XorCancel = true; //Break elevator loop if X or Cancel was hit.
@@ -295,6 +296,7 @@ public class TowerOfTerror {
                 case 2:
                 JOptionPane.showMessageDialog(null, "You Have " + Backpack 
              + " in your Backpack");
+                break;
                 default:
                     System.out.println("Program terminated.");
                     XorCancel = true; //Break elevator loop if X or Cancel was hit.
@@ -339,6 +341,7 @@ public class TowerOfTerror {
                 case 2:
                 JOptionPane.showMessageDialog(null, "You Have " + Backpack 
              + " in your Backpack");
+                break;
                 default:
                     System.out.println("Program terminated.");
                     XorCancel = true; //Break elevator loop if X or Cancel was hit.
@@ -389,6 +392,7 @@ public class TowerOfTerror {
                 case 3:
                 JOptionPane.showMessageDialog(null, "You Have " + Backpack 
              + " in your Backpack");
+                break;
                default:
                    System.out.println("Program terminated.");
                     XorCancel = true; //Break elevator loop if X or Cancel was hit.
@@ -438,6 +442,7 @@ public class TowerOfTerror {
                 case 3:
                 JOptionPane.showMessageDialog(null, "You Have " + Backpack 
              + " in your Backpack");
+                break;
                 default:
                     System.out.println("Program terminated.");
                     XorCancel = true; //Break elevator loop if X or Cancel was hit.
@@ -483,7 +488,8 @@ public class TowerOfTerror {
                     break;
                 case 2:
                 JOptionPane.showMessageDialog(null, "You Have " + Backpack 
-             + " in your Backpack");    
+             + " in your Backpack");
+                break;
                 default:
                     System.out.println("Program terminated.");
                     XorCancel = true; //Break elevator loop if X or Cancel was hit.
@@ -533,6 +539,7 @@ public class TowerOfTerror {
                 case 3:
                 JOptionPane.showMessageDialog(null, "You Have " + Backpack 
              + " in your Backpack");
+                break;
                 default:
                     System.out.println("Program terminated.");
                     XorCancel = true; //Break elevator loop if X or Cancel was hit.
@@ -584,6 +591,7 @@ public class TowerOfTerror {
                 case 3:
                 JOptionPane.showMessageDialog(null, "You Have " + Backpack 
              + " in your Backpack");
+                break;
                 default:
                     System.out.println("Program terminated.");
                     XorCancel = true; //Break elevator loop if X or Cancel was hit.
@@ -637,6 +645,7 @@ public class TowerOfTerror {
                 case 3:
                 JOptionPane.showMessageDialog(null, "You Have " + Backpack 
              + " in your Backpack");
+                break;
                 default:
                     System.out.println("Program terminated.");
                     XorCancel = true; //Break elevator loop if X or Cancel was hit.
@@ -687,6 +696,7 @@ public class TowerOfTerror {
                 case 3:
                 JOptionPane.showMessageDialog(null, "You Have " + Backpack 
              + " in your Backpack");
+                break;
                 default:
                     System.out.println("Program terminated.");
                     XorCancel = true; //Break elevator loop if X or Cancel was hit.
@@ -732,6 +742,7 @@ public class TowerOfTerror {
                 case 3:
                 JOptionPane.showMessageDialog(null, "You Have " + Backpack 
              + " in your Backpack");
+                break;
                 default:
                     System.out.println("Program terminated.");
                     XorCancel = true; //Break elevator loop if X or Cancel was hit.
@@ -774,6 +785,7 @@ public class TowerOfTerror {
             case 2:
                 JOptionPane.showMessageDialog(null, "You Have " + Backpack 
              + " in your Backpack");
+                break;
             default:
                 System.out.println("Program terminated.");
                 XorCancel = true;
@@ -819,6 +831,7 @@ public class TowerOfTerror {
                 case 3:
                 JOptionPane.showMessageDialog(null, "You Have " + Backpack 
              + " in your Backpack");
+                break;
                 default:
                     System.out.println("Program terminated.");
                     XorCancel = true; //Ends game entirely.
@@ -864,6 +877,7 @@ public void BoilerRoom(){
             case 2:
                 JOptionPane.showMessageDialog(null, "You Have " + Backpack 
              + " in your Backpack");
+                break;
             default:
                 elevatorCalled = true; //Just to break this loop.
                 System.out.println("Program terminated.");
@@ -907,6 +921,7 @@ public void StorageRoom(){
             case 3:
                 JOptionPane.showMessageDialog(null, "You Have " + Backpack 
              + " in your Backpack");
+                break;
             default:
                 System.out.println("Program terminated.");
                 XorCancel = true; //Ends Game entirely.
@@ -1029,7 +1044,7 @@ public void StorageRoom(){
             JOptionPane.showConfirmDialog(null,itemMessage+"\n"+backpackMessage,
                     "Game Over", 2, JOptionPane.ERROR_MESSAGE, lastLocation);   
             
-            
+           
     return backpackMessage;
     }
     
