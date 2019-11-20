@@ -13,11 +13,11 @@ import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 public class TowerOfTerror {
-//    private String[] backpacklist = {"Empty","Chest","Candelabra","Refrigerator","Cabinet","Dusty recipe box",
-//            "Broom","Mirror","Shower","Rocking Chair","Window","Doll House",
-//            "Dresser","Jewelry Box","Intricate Oil Lamp"};
-     Set<String> Backpack = new HashSet<String> ();
     
+    //Naadir: Create Backpack
+     Set<String> Backpack = new HashSet<String> ();
+    private boolean salvation = false;// Checks if they have basement key
+     
     //Stores the player's name.
     private String namePC;
     //Stores the index in the backpack array for the item being held.
@@ -775,9 +775,21 @@ public class TowerOfTerror {
         int nextActionIndex = chosenDestination(choicesAttic, inputAttic);
         switch(nextActionIndex){
             case 0:
-                //CHECK IF THEY HAVE BASEMENT KEY
-                //YES: OPEN CHEST, CALL OTHER KEY
-                //NO: CHEST IS LOCKED
+                if(salvation == true){
+                    JOptionPane.showMessageDialog(null, "You open the chest and"
+                            + " a ray of light surrounds you! You close your "
+                            + " eyes and when you open them you find yourself"
+                            + " at home under your blanket with a warm cup of"
+                            + " eggnog. Santa is reading you bedtime stories."
+                            + " Sweet Dreams.");
+                playerEscaped =true;
+                }
+                
+                    else{
+                            JOptionPane.showMessageDialog(null,"It seems you"
+                            + " are missing something very important. Better"
+                            + " find it before you forget who you are.");
+                            }
                 break;
             case 1:
                 elevatorCalled = true;
@@ -909,7 +921,9 @@ public void StorageRoom(){
             int nextActionIndex = chosenDestination(choicesStorageRoom, inputStorageRoom);
             switch(nextActionIndex){
             case 0:
-                //CHEST CASE BELONGS HERE WITH KEY FOR THE ATTIC
+                backpackIndex = 15;
+                Backpack(backpackIndex);
+                salvation = true;
                 break;
             case 1:
             //Backpackindex = Refridgerator
@@ -1032,6 +1046,10 @@ public void StorageRoom(){
                     + "in the scent \"Lemon Grass\"."+"\nNice.";
                     lastLocation = new ImageIcon("src/main/java/img/oillamp.gif");
                     Backpack.add("Oil Diffuser");
+                    break;
+            case 15: itemMessage = "You found an eerily irresistible key, "
+                    + "/n it calls you!! You must have it!!!";
+                    Backpack.add("Precious Key");
                     break;
             default: 
                   System.out.println("Empty. Shouldn't be called. Program terminates.");
