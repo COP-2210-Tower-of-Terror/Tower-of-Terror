@@ -46,7 +46,7 @@ public class hauntedHouse {
     every room.
     Java intializes booleans to false. 
     */
-    private boolean[] roomsExplored = new boolean[13];
+    private boolean[] floorExplored = new boolean[13];
     
     /**
      * Eric: This boolean checks whether the elevator method was called, which
@@ -114,25 +114,28 @@ public class hauntedHouse {
            if(playerStart){
                playerStart = false;
                FrontDoor();
+               //The player has always explored at least one room.
+               floorExplored[1]=true;
            }
            else{
                /*First, check if the player has explored
                all the rooms. This loop checks that.
                This All rooms explored int will increment
-               if all the rooms have been explored.
+               if a room has been explored.
                */
              
-               for(int i = 0; i < roomsExplored.length; i++){
-                   if(roomsExplored[i]==true){allFloorsExplored++;}
+               for(int i = 0; i < floorExplored.length; i++){
+                   if(floorExplored[i]==true){allFloorsExplored++;
+                   }
                }
                //If all 13 floors were explored, player dies.
                if(allFloorsExplored == 13){playerAlive=false;
                JOptionPane.showConfirmDialog(null,"You're still here, "+namePC+"."
-                + "?\nYou've explored every room and unlike you, we can't be here all day.\n You die in the elevator.", 
+                + "?\nYou've explored every room and unlike you, we can't be here all day.\n\nYou die in the elevator.", 
                        "Ripperoni, Pepperoni: Game Over", 2, JOptionPane.INFORMATION_MESSAGE, iconSweaty);
-               //Enter JOptionPane here for the player dying.
                }
-               else{allFloorsExplored = 0;// if not, reset counter for next loop.
+               else{
+                   allFloorsExplored = 0;// if not, reset counter for next loop.
                
                /*Now offer the elevator options.*/
                     String elevatorMessage =("You stand in the creaky and cold elevator."
@@ -153,8 +156,8 @@ public class hauntedHouse {
                         case 2: 
                              LivingRoom();
                             break;
-                        case 3: 
-                             Bathroom1();
+                        case 3:
+                            Bathroom1();
                             break;
                         case 4: 
                             Kitchen();
@@ -187,7 +190,7 @@ public class hauntedHouse {
                     
                         //If the player has not explored this room yet,
                         //they have now.
-                        if(!roomsExplored[floorChosen]){roomsExplored[floorChosen] = true;}
+                        if(!floorExplored[floorChosen]) {floorExplored[floorChosen] = true;}
                 } 
                
                
@@ -270,7 +273,7 @@ public class hauntedHouse {
                     Backpack();
                     break;
                 case 1:
-                    Elevator();
+                    elevatorCalled = true;
                     break;
                 default:
                     System.out.println("null value. Did you close the window? Program terminated.");
@@ -309,7 +312,7 @@ public class hauntedHouse {
                     Backpack();
                     break;
                 case 1:
-                    Elevator();
+                    elevatorCalled = true;
                     break;
                 default:
                     System.out.println("null value. Did you close the window? Program terminated.");
@@ -355,7 +358,7 @@ public class hauntedHouse {
                    Backpack();
                    break;
                case 2:
-                   Elevator();
+                    elevatorCalled = true;
                    break;
                default:
                    System.out.println("null value. Did you close the window? Program terminated.");
@@ -400,7 +403,7 @@ public class hauntedHouse {
                     Backpack();
                     break;
                 case 2:
-                    Elevator();
+                    elevatorCalled = true;
                     break;
                 default:
                     System.out.println("null value. Did you close the window? Program terminated.");
@@ -442,7 +445,7 @@ public class hauntedHouse {
                     Backpack();
                     break;
                 case 1:
-                    Elevator();
+                    elevatorCalled = true;
                     break;
                 default:
                     System.out.println("null value. Did you close the window? Program terminated.");
@@ -486,7 +489,7 @@ public class hauntedHouse {
                     Backpack();
                     break;
                 case 2: 
-                    Elevator();
+                    elevatorCalled = true;
                     break;
                 default:
                     System.out.println("null value. Did you close the window? Program terminated.");
@@ -533,7 +536,7 @@ public class hauntedHouse {
                     Backpack();
                     break;
                 case 2:
-                    Elevator();
+                    elevatorCalled = true;
                     break;
                 default:
                     System.out.println("null value. Did you close the window? Program terminated.");
@@ -581,7 +584,7 @@ public class hauntedHouse {
                     Backpack();
                     break;
                 case 2:
-                    Elevator();
+                    elevatorCalled = true;
                     break;
                 default:
                     System.out.println("null value. Did you close the window? Program terminated.");
@@ -625,7 +628,7 @@ public class hauntedHouse {
                     Backpack();
                     break;
                 case 2:
-                    Elevator();
+                    elevatorCalled = true;
                     break;
                 default:
                     System.out.println("null value. Did you close the window? Program terminated.");
@@ -664,7 +667,7 @@ public class hauntedHouse {
                     Backpack();
                     break;
                 case 2:
-                    Elevator();
+                    elevatorCalled = true;
                     break;
                 default:
                     System.out.println("null value. Did you close the window? Program terminated.");
