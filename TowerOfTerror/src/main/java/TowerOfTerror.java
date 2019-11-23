@@ -116,7 +116,8 @@ public class TowerOfTerror {
         int allFloorsExplored=0;
         
         
-        ImageIcon iconSweaty = new ImageIcon("src/main/java/img/sweaty.gif");
+        ImageIcon iconElevator = new ImageIcon("src/main/java/img/ELEVATOR.gif");
+          ImageIcon iconSweaty = new ImageIcon("src/main/java/img/sweaty.gif");
        do{
             //First, if the player is just starting, they must start
             // at the FrontDoor.
@@ -153,7 +154,7 @@ public class TowerOfTerror {
                        + "\nYou press...");
                     String inputElevator = (String) JOptionPane.showInputDialog(null, elevatorMessage,
                     "Which floor would you like?",
-                    JOptionPane.QUESTION_MESSAGE, null, elevatorFloors, elevatorFloors[0]);
+                    JOptionPane.QUESTION_MESSAGE, iconElevator  , elevatorFloors, elevatorFloors[0]);
                
                     int floorChosen = chosenDestination(elevatorFloors, inputElevator);
                     switch(floorChosen){
@@ -196,6 +197,10 @@ public class TowerOfTerror {
                         case 12:
                              Attic();
                             break;
+                        case -1:
+                            System.out.println("Program terminated.");
+                            XorCancel=true;
+                            break;
                         default:
                             System.out.println("Program terminated.");
                             XorCancel=true;
@@ -218,7 +223,7 @@ public class TowerOfTerror {
     public void Basement(){
         elevatorCalled = false;
         //I show a map here to provide some clarity on the options.
-        ImageIcon mapBasement = new ImageIcon("src/main/java/img/stairs-top.gif");
+        ImageIcon iconBASE = new ImageIcon("src/main/java/img/0-BASEMENT.gif");
         String[] choicesBasement = {"The [Door] to your right.",
             "The [Door] to your left.","Choose another floor in the [Elevator]."
             ,"Check " + namePC+"'s [Backpack]."};
@@ -230,7 +235,7 @@ public class TowerOfTerror {
                 "Which one do you choose?",
                 "Floor 0: The Basement",
                 JOptionPane.QUESTION_MESSAGE,
-                mapBasement,
+                iconBASE,
                 choicesBasement,
                 choicesBasement[0]);
             //Calls chosenDestination, which returns the index of the chosen location
@@ -271,7 +276,7 @@ public class TowerOfTerror {
             
             String[] choices = {"Enter the [Elevator].", "Check " + namePC+"'s [Backpack]."};
            //ImageIcon object for the JOptionPane with image file location. 
-            ImageIcon iconFD = new ImageIcon("src/main/java/img/bugcatmap1.png");
+            ImageIcon iconFD = new ImageIcon("src/main/java/img/1-FRONTDOOR.gif");
 
            //JOptionPane with String conversion from object type.
             String inputFD = (String) JOptionPane.showInputDialog(null, "You stand at the front door, in front of an [Elevator].\nThe door opens as you move forward.\n"
@@ -308,6 +313,8 @@ public class TowerOfTerror {
      */
     //***FLOOR 2***//
     public void LivingRoom(){
+        //ImageIcon object for the JOptionPane with image file location. 
+            ImageIcon iconLR = new ImageIcon("src/main/java/img/2-LIVINGROOM.gif");
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
@@ -319,7 +326,7 @@ public class TowerOfTerror {
                 +"\nAside from a [Chest] in the corner. You hear the [Elevator] creak.",
                 "Floor 2: The Living Room",
                 JOptionPane.QUESTION_MESSAGE,
-                null,
+                iconLR,
                 choices,
                 choices[0]);
             //Calls chosenDestination, which returns the index of the chosen location
@@ -351,6 +358,8 @@ public class TowerOfTerror {
      */    
     //**FLOOR 3**//
     public void Bathroom1(){
+        //ImageIcon object for the JOptionPane with image file location. 
+            ImageIcon iconLRBATH = new ImageIcon("src/main/java/img/3-LRBATHROOM.gif");
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
@@ -365,7 +374,7 @@ public class TowerOfTerror {
                         + "\nYou contemplate the privacy a direct [Elevator] to a bathroom provides.",
                 "Floor 3: The Living Room's Bathroom",
                 JOptionPane.QUESTION_MESSAGE,
-                null,
+                iconLRBATH,
                 choicesB1,
                 choicesB1[0]);
             //Calls chosenDestination, which returns the index of the chosen location
@@ -403,6 +412,8 @@ public class TowerOfTerror {
      */
     //***FLOOR 4***//
     public void Kitchen(){
+        //ImageIcon object for the JOptionPane with image file location. 
+            ImageIcon iconKIT = new ImageIcon("src/main/java/img/4-KITCHEN.gif");
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
@@ -418,7 +429,7 @@ public class TowerOfTerror {
                 + "\nWho even cares, really? Maybe just get back in the [Elevator].",
                "Floor 4: The Kitchen",
                JOptionPane.QUESTION_MESSAGE,
-               null,
+               iconKIT,
                choicesKIT,
                choicesKIT[0]);
            //Calls chosenDestination, which returns the index of the chosen location
@@ -455,6 +466,8 @@ public class TowerOfTerror {
      */
     //**FLOOR 5***//
     public void Pantry(){
+        //ImageIcon object for the JOptionPane with image file location. 
+            ImageIcon iconPAN = new ImageIcon("src/main/java/img/5-PANTRY.gif");
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
@@ -469,7 +482,7 @@ public class TowerOfTerror {
                 + "\nand in the corner, a [Broom]. The [Elevator] could use some cleaning...",
                 "Floor 5: The Pantry",
                 JOptionPane.QUESTION_MESSAGE,
-                null,
+                iconPAN,
                 choicesPAN,
                 choicesPAN[0]);
             //Calls chosenDestination, which returns the index of the chosen location
@@ -506,6 +519,8 @@ public class TowerOfTerror {
      */
     //***FLOOR 6***//
     public void DiningRoom(){
+        //ImageIcon object for the JOptionPane with image file location. 
+            ImageIcon iconDR = new ImageIcon("src/main/java/img/6-DININGROOM.gif");
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
@@ -519,7 +534,7 @@ public class TowerOfTerror {
                         + "Behind you, the [Elevator] looms.",
                 "Floor 6: The Dining Room",
                 JOptionPane.QUESTION_MESSAGE,
-                null,
+                iconDR,
                 choicesDR,
                 choicesDR[0]);
             //Calls chosenDestination, which returns the index of the chosen location
@@ -553,6 +568,8 @@ public class TowerOfTerror {
      */
     //***FLOOR 7***//
     public void firstBedroom(){
+        //ImageIcon object for the JOptionPane with image file location. 
+            ImageIcon iconBED1 = new ImageIcon("src/main/java/img/7-BEDROOM1.gif");
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             String[] choicesBed1FromStairs = {
@@ -568,7 +585,7 @@ public class TowerOfTerror {
                 + "\n",
                 "Floor 7: The First Bedroom",
                 JOptionPane.QUESTION_MESSAGE,
-                null,
+                iconBED1,
                 choicesBed1FromStairs,
                 choicesBed1FromStairs[0]);
 
@@ -601,6 +618,8 @@ public class TowerOfTerror {
     }
     //***FLOOR 8***//
     public void Bathroom2(){
+        //ImageIcon object for the JOptionPane with image file location. 
+            ImageIcon iconBDBATH = new ImageIcon("src/main/java/img/8-BDBATHROOM.gif");
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
@@ -615,7 +634,7 @@ public class TowerOfTerror {
                         + "\nBehind you, the [Elevator] watches intently, interested in your bathroom business.",
                 "Floor 8: The Shared Bedroom Bathroom",
                 JOptionPane.QUESTION_MESSAGE,
-                null,
+                iconBDBATH,
                 choicesB2,
                 choicesB2[0]);
             //Calls chosenDestination, which returns the index of the chosen location
@@ -655,6 +674,8 @@ public class TowerOfTerror {
      */
     //***FLOOR 9***//
     public void secondBedroom(){
+        //ImageIcon object for the JOptionPane with image file location. 
+            ImageIcon iconBED2 = new ImageIcon("src/main/java/img/9-BEDROOM2.gif");
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             String[] choicesBed2FromStairs = {
@@ -671,7 +692,7 @@ public class TowerOfTerror {
                 + "\nOr do you miss the smell of the [Elevator] already?",
                 "Floor 9: The Second Bedroom",
                 JOptionPane.QUESTION_MESSAGE,
-                null,
+                iconBED2,
                 choicesBed2FromStairs,
                 choicesBed2FromStairs[0]);
 
@@ -707,6 +728,8 @@ public class TowerOfTerror {
      */
     //***FLOOR 10***//
     public void MasterBathroom(){
+        //ImageIcon object for the JOptionPane with image file location. 
+            ImageIcon iconMBATH = new ImageIcon("src/main/java/img/10-MASTERBATH.gif");
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
@@ -722,7 +745,7 @@ public class TowerOfTerror {
                         + "\nWho has direct [Elevator] access to a bathroom, though?",
                     "Floor 10: The Master Bathroom",
                     JOptionPane.QUESTION_MESSAGE,
-                    null,
+                    iconMBATH,
                 choicesMBath,
                 choicesMBath[0]);
             //Calls chosenDestination, which returns the index of the chosen location
@@ -760,6 +783,8 @@ public class TowerOfTerror {
      */
     //***FLOOR 11***//
     public void MasterBedroom(){   
+        //ImageIcon object for the JOptionPane with image file location. 
+            ImageIcon iconMBED = new ImageIcon("src/main/java/img/11-MASTERBED.gif");
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
@@ -772,7 +797,7 @@ public class TowerOfTerror {
                 + "\n But maybe you miss the [Elevator] already.",
                 "Floor 11: The Master Bedroom",
                 JOptionPane.QUESTION_MESSAGE,
-                null,
+                iconMBED,
                 choicesMBed,
                 choicesMBed[0]);
             //Calls chosenDestination, which returns the index of the chosen location
@@ -802,6 +827,8 @@ public class TowerOfTerror {
     /*Yasmani, edited by Tiff*/
     //***FLOOR 12***//
     public void Attic(){
+        //ImageIcon object for the JOptionPane with image file location. 
+            ImageIcon iconATTIC = new ImageIcon("src/main/java/img/12-ATTIC.gif");
        elevatorCalled = false;
        //String array of choices for the JOptionPane
        String[] choicesAttic = {"Try to open the [Chest].",
@@ -814,7 +841,7 @@ public class TowerOfTerror {
                + "\nLook in the [Chest] or just go back to the [Elevator]?",
                "Floor 12: The Attic",
                JOptionPane.QUESTION_MESSAGE,
-               null,
+               iconATTIC,
                choicesAttic,
                choicesAttic[0]);
            //Calls chosenDestination, which returns the index of the chosen location
@@ -1074,8 +1101,8 @@ public class TowerOfTerror {
         int choicesIndex = 0;
         //if chosenLocation is a null pointer pointing to nothing, returns error
         if(chosenLocation == null){
-            choicesIndex = -1;
-        }else{ //if not, return the same as the index.
+            choicesIndex = -1;}
+        else{ //if not, return the same as the index.
             for(int i = 0; i < choices.length; i++) {
                 if(choices[i].equals(chosenLocation)) {
                     choicesIndex = i;
