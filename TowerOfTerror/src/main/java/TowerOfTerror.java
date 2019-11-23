@@ -248,8 +248,13 @@ public class TowerOfTerror {
                     elevatorCalled = true;
                     break;
                 case 3:
-                    JOptionPane.showMessageDialog(null, "You Have " + Backpack 
-                    + " in your Backpack.");
+                    if(Backpack.size() == 0){
+                        JOptionPane.showMessageDialog(null, "You have nothing "
+                                + "in your backpack.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "You have "  + Backpack 
+                                + " in your backpack.");
+                    }
                     break;
                 default:
                     System.out.println("Program terminated.");
@@ -335,8 +340,13 @@ public class TowerOfTerror {
                     elevatorCalled = true;
                     break;
                 case 2:
-                JOptionPane.showMessageDialog(null, "You Have " + Backpack 
-             + " in your Backpack.");
+                if(Backpack.size() == 0){
+                        JOptionPane.showMessageDialog(null, "You have nothing "
+                                + "in your backpack.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "You have "  + Backpack 
+                                + " in your backpack.");
+                    }
                 break;
                 default:
                     System.out.println("Program terminated.");
@@ -387,8 +397,13 @@ public class TowerOfTerror {
                     elevatorCalled = true;
                     break;
                 case 3:
-                    JOptionPane.showMessageDialog(null, "You Have " + Backpack 
-                    + " in your Backpack.");
+                    if(Backpack.size() == 0){
+                        JOptionPane.showMessageDialog(null, "You have nothing "
+                                + "in your backpack.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "You have "  + Backpack 
+                                + " in your backpack.");
+                    }
                     break;
                 default:
                     System.out.println("Program terminated.");
@@ -439,8 +454,13 @@ public class TowerOfTerror {
                     elevatorCalled = true;
                    break;
                 case 3:
-                    JOptionPane.showMessageDialog(null, "You Have " + Backpack 
-                    + " in your Backpack.");
+                    if(Backpack.size() == 0){
+                        JOptionPane.showMessageDialog(null, "You have nothing "
+                                + "in your backpack.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "You have "  + Backpack 
+                                + " in your backpack.");
+                    }
                     break;
                default:
                    System.out.println("Program terminated.");
@@ -490,8 +510,13 @@ public class TowerOfTerror {
                     elevatorCalled = true;
                     break;
                 case 3:
-                    JOptionPane.showMessageDialog(null, "You Have " + Backpack 
-                    + " in your Backpack.");
+                    if(Backpack.size() == 0){
+                        JOptionPane.showMessageDialog(null, "You have nothing "
+                                + "in your backpack.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "You have "  + Backpack 
+                                + " in your backpack.");
+                    }
                     break;
                 default:
                     System.out.println("Program terminated.");
@@ -536,8 +561,13 @@ public class TowerOfTerror {
                     elevatorCalled = true;
                     break;
                 case 2:
-                JOptionPane.showMessageDialog(null, "You Have " + Backpack 
-             + " in your Backpack.");
+                    if(Backpack.size() == 0){
+                        JOptionPane.showMessageDialog(null, "You have nothing "
+                                + "in your backpack.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "You have "  + Backpack 
+                                + " in your backpack.");
+                    }
                 break;
                 default:
                     System.out.println("Program terminated.");
@@ -589,8 +619,13 @@ public class TowerOfTerror {
                     elevatorCalled = true;
                     break;
                 case 3:
-                    JOptionPane.showMessageDialog(null, "You Have " + Backpack 
-                    + " in your Backpack.");
+                    if(Backpack.size() == 0){
+                        JOptionPane.showMessageDialog(null, "You have nothing "
+                                + "in your backpack.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "You have "  + Backpack 
+                                + " in your backpack.");
+                    }
                     break;
                 default:
                     System.out.println("Program terminated.");
@@ -637,8 +672,13 @@ public class TowerOfTerror {
                     elevatorCalled = true;
                     break;
                 case 3:
-                    JOptionPane.showMessageDialog(null, "You Have " + Backpack 
-                    + " in your Backpack.");
+                    if(Backpack.size() == 0){
+                        JOptionPane.showMessageDialog(null, "You have nothing "
+                                + "in your backpack.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "You have "  + Backpack 
+                                + " in your backpack.");
+                    }
                     break;
                 default:
                     System.out.println("Program terminated.");
@@ -692,8 +732,13 @@ public class TowerOfTerror {
                     elevatorCalled = true;
                     break;
                 case 3:
-                    JOptionPane.showMessageDialog(null, "You Have " + Backpack 
-                    + " in your Backpack.");
+                    if(Backpack.size() == 0){
+                        JOptionPane.showMessageDialog(null, "You have nothing "
+                                + "in your backpack.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "You have "  + Backpack 
+                                + " in your backpack.");
+                    }
                     break;
                 default:
                     System.out.println("Program terminated.");
@@ -744,8 +789,13 @@ public class TowerOfTerror {
                     elevatorCalled = true;
                     break;
                 case 3:
-                JOptionPane.showMessageDialog(null, "You Have " + Backpack 
-             + " in your Backpack.");
+                if(Backpack.size() == 0){
+                        JOptionPane.showMessageDialog(null, "You have nothing "
+                                + "in your backpack.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "You have "  + Backpack 
+                                + " in your backpack.");
+                    }
                 break;
                 default:
                     System.out.println("Program terminated.");
@@ -789,8 +839,13 @@ public class TowerOfTerror {
                     elevatorCalled = true;
                     break;
                 case 2:
-                    JOptionPane.showMessageDialog(null, "You Have " + Backpack 
-                    + " in your Backpack.");
+                    if(Backpack.size() == 0){
+                        JOptionPane.showMessageDialog(null, "You have nothing "
+                                + "in your backpack.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "You have "  + Backpack 
+                                + " in your backpack.");
+                    }
                     break;
                 default:
                     System.out.println("Program terminated.");
@@ -842,8 +897,13 @@ public class TowerOfTerror {
                   elevatorCalled = true;
                   break;
               case 2:
-                  JOptionPane.showMessageDialog(null, "You Have " + Backpack 
-                  + " in your Backpack.");
+                  if(Backpack.size() == 0){
+                        JOptionPane.showMessageDialog(null, "You have nothing "
+                                + "in your backpack.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "You have "  + Backpack 
+                                + " in your backpack.");
+                    }
                   break;
               default:
                   System.out.println("Program terminated.");
@@ -882,8 +942,13 @@ public class TowerOfTerror {
                 elevatorCalled = true;
                 break;
             case 2:
-                JOptionPane.showMessageDialog(null, "You Have " + Backpack 
-             + " in your Backpack.");
+                if(Backpack.size() == 0){
+                        JOptionPane.showMessageDialog(null, "You have nothing "
+                                + "in your backpack.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "You have "  + Backpack 
+                                + " in your backpack.");
+                    }
                 break;
             default:
                 elevatorCalled = true; //Just to break this loop.
@@ -929,8 +994,13 @@ public class TowerOfTerror {
                 elevatorCalled = true;
                 break;
             case 3:
-                JOptionPane.showMessageDialog(null, "You Have " + Backpack 
-             + " in your Backpack.");
+                if(Backpack.size() == 0){
+                        JOptionPane.showMessageDialog(null, "You have nothing "
+                                + "in your backpack.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "You have "  + Backpack 
+                                + " in your backpack.");
+                    }
                 break;
             default:
                 System.out.println("Program terminated.");
