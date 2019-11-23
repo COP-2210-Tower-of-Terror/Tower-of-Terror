@@ -75,7 +75,11 @@ public class TowerOfTerror {
     //The only method in the tester class, prompts for player's
     //name which is used throughout the house.
     public void Enter(){
-        
+        /**
+         * This function is initially played to find the user's name
+         * then calls Elevator and starts the loop.
+         * @author Tiffany Reyes
+         */
        ImageIcon iconName = new ImageIcon("src/main/java/img/name.png");
        ImageIcon iconSweaty = new ImageIcon("src/main/java/img/sweaty.gif");
        
@@ -101,8 +105,13 @@ public class TowerOfTerror {
     /**
      * Tiffany Reyes: Elevator case.
      */
-    
     public void Elevator(){ 
+        /**
+         * The main loop of the project.
+         * All room functions return here and are called from here in the Elevator.
+         * Keeps looping if the player is alive and has not escaped.
+         * @author Tiffany Reyes
+         */
       elevatorCalled = true;
       
       /*Array of options to be offered in the elevator. Used with 
@@ -221,6 +230,13 @@ public class TowerOfTerror {
     
     //***FLOOR 0***//
     public void Basement(){
+        /**
+         * Basement, called at case 1 of Floor 1.
+         * Offers Boiler and Storage room. The only method
+         * that offers two rooms and calls functions.
+         * Loop breaks if player dies or if the elevator is called.
+         * @author Eric Vilella
+         */
         elevatorCalled = false;
         //I show a map here to provide some clarity on the options.
         ImageIcon iconBASE = new ImageIcon("src/main/java/img/0-BASEMENT.gif");
@@ -270,6 +286,13 @@ public class TowerOfTerror {
      */
     //***FLOOR 1***//
     public void FrontDoor(){
+          /**
+           * Front door method, case 1, called from the Elevator,
+         * Loop breaks if player dies or if the elevator is called.
+         * Also checks if the player has escaped with the wincases,
+         * The keys from the attic and the basement.
+         * @author Eric Vilella, Ivan Reyes, Naadir Kirlew, Tiffany Reyes
+         */
         elevatorCalled = false;
         //Loop while the player has not escaped, not called elevator and is still alive.
         while((playerAlive)&&(!playerEscaped)&&(!elevatorCalled)){
@@ -313,8 +336,17 @@ public class TowerOfTerror {
      */
     //***FLOOR 2***//
     public void LivingRoom(){
+
         //ImageIcon object for the JOptionPane with image file location. 
             ImageIcon iconLR = new ImageIcon("src/main/java/img/2-LIVINGROOM.gif");
+
+        /**
+         * Floor2, case 2 from the Elevator. Offers only a chest,
+         * or calling the elevator and checking the backpack.
+         * Loop breaks if player dies or if the elevator is called.
+         * @author Eric Vilella
+         */
+
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
@@ -358,8 +390,17 @@ public class TowerOfTerror {
      */    
     //**FLOOR 3**//
     public void Bathroom1(){
+
         //ImageIcon object for the JOptionPane with image file location. 
             ImageIcon iconLRBATH = new ImageIcon("src/main/java/img/3-LRBATHROOM.gif");
+
+        /**
+         * Living room bathroom, Floor 3. Offers the Mirror,
+         * Shower, Elevator and Checking the Backpack.
+         * Loop breaks if player dies or if the elevator is called.
+         * @author Eric Vilella
+         */
+
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
@@ -412,8 +453,17 @@ public class TowerOfTerror {
      */
     //***FLOOR 4***//
     public void Kitchen(){
+
         //ImageIcon object for the JOptionPane with image file location. 
             ImageIcon iconKIT = new ImageIcon("src/main/java/img/4-KITCHEN.gif");
+
+        /**
+         * Floor 4, Case 4 of the Elevator. Offers Refridgerator,
+         * Cabinet, Elevator and Checking the backpack.
+         * Loop breaks if player dies or if the elevator is called.
+         * @author Eric Vilella
+         */
+
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
@@ -466,8 +516,17 @@ public class TowerOfTerror {
      */
     //**FLOOR 5***//
     public void Pantry(){
+
         //ImageIcon object for the JOptionPane with image file location. 
             ImageIcon iconPAN = new ImageIcon("src/main/java/img/5-PANTRY.gif");
+
+        /**
+         * Case 5 of the Elevator, offers pantry, broom,
+         * elevator and checking the backpack.
+         * Loop breaks if player dies or if the elevator is called.
+         * @author Eric Vilella
+         */
+
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
@@ -519,8 +578,17 @@ public class TowerOfTerror {
      */
     //***FLOOR 6***//
     public void DiningRoom(){
+
         //ImageIcon object for the JOptionPane with image file location. 
             ImageIcon iconDR = new ImageIcon("src/main/java/img/6-DININGROOM.gif");
+
+        /**
+         * Case 6 of the Elevator, offers the Candelabra,
+         * Elevator and checking the backpack.
+         * Loop breaks if player dies or if the elevator is called.
+         * @author Eric Vilella
+         */
+
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
@@ -568,8 +636,17 @@ public class TowerOfTerror {
      */
     //***FLOOR 7***//
     public void firstBedroom(){
+
         //ImageIcon object for the JOptionPane with image file location. 
             ImageIcon iconBED1 = new ImageIcon("src/main/java/img/7-BEDROOM1.gif");
+
+        /**
+         * Case 7, floor 7 of the elevator. Offers Rocking chair, window,
+         * Backpack and Elevator.
+         * Loop breaks if player dies or if the elevator is called.
+         * @author Eric Vilella
+         */
+
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             String[] choicesBed1FromStairs = {
@@ -618,8 +695,17 @@ public class TowerOfTerror {
     }
     //***FLOOR 8***//
     public void Bathroom2(){
+
         //ImageIcon object for the JOptionPane with image file location. 
             ImageIcon iconBDBATH = new ImageIcon("src/main/java/img/8-BDBATHROOM.gif");
+
+        /**
+         * Case 8 of the Elevator,
+         * Offers mirror, shower, elevator and check backpack.
+         * Loop breaks if player dies or if the elevator is called.
+         * @author Eric Vilella
+         */
+
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
@@ -674,8 +760,17 @@ public class TowerOfTerror {
      */
     //***FLOOR 9***//
     public void secondBedroom(){
+
         //ImageIcon object for the JOptionPane with image file location. 
             ImageIcon iconBED2 = new ImageIcon("src/main/java/img/9-BEDROOM2.gif");
+
+        /**
+         * Case 9 of the Elevator.
+         * Offers Dresser, Doll house, elevator and check backpack.
+         * Loop breaks if player dies or if the elevator is called.
+         * @author Eric Vilella
+         */
+
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             String[] choicesBed2FromStairs = {
@@ -728,8 +823,17 @@ public class TowerOfTerror {
      */
     //***FLOOR 10***//
     public void MasterBathroom(){
+
         //ImageIcon object for the JOptionPane with image file location. 
             ImageIcon iconMBATH = new ImageIcon("src/main/java/img/10-MASTERBATH.gif");
+
+        /**
+         * Case 10 of the Elevator, offers oil diffusser, shower,
+         * elevator, and check backpack.
+         * Loop breaks if player dies or if the elevator is called.
+         * @author Eric Vilella
+         */
+
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
@@ -782,9 +886,17 @@ public class TowerOfTerror {
      * connected to the master bedroom. Replaced it with going to the elevator.
      */
     //***FLOOR 11***//
+
     public void MasterBedroom(){   
         //ImageIcon object for the JOptionPane with image file location. 
             ImageIcon iconMBED = new ImageIcon("src/main/java/img/11-MASTERBED.gif");
+        /**
+         * Case 11 of the Elevator, offers jewelry box, elevator
+         * and check backpack.
+         * Loop breaks if player dies or if the elevator is called.
+         * @author Eric Vilella
+         */
+
         elevatorCalled = false; 
         while(playerAlive == true && elevatorCalled == false){
             //String array of choices for the JOptionPane
@@ -827,8 +939,17 @@ public class TowerOfTerror {
     /*Yasmani, edited by Tiff*/
     //***FLOOR 12***//
     public void Attic(){
+
         //ImageIcon object for the JOptionPane with image file location. 
             ImageIcon iconATTIC = new ImageIcon("src/main/java/img/12-ATTIC.gif");
+
+        /**
+         * Case 12, from the Elevator, offers
+         * Chest with win key in it, Elevator, Check Backpack.
+         * Loop breaks if player dies or if the elevator is called.
+         * @author Yasmani Valdez, Tiffany Reyes, Naadir Kirlew, Ivan Reyes
+         */
+
        elevatorCalled = false;
        //String array of choices for the JOptionPane
        String[] choicesAttic = {"Try to open the [Chest].",
@@ -882,6 +1003,12 @@ public class TowerOfTerror {
    }
     //***ON FLOOR 0: BASEMENT***//
     public void BoilerRoom(){
+      /**
+         * Case 0 from the Elevator, to Basement, to BoilerRoom
+         * Just an empty room. Offers Backpack and Elevator.
+         * Loop breaks if player dies or if the elevator is called.
+         * @author Yasmani Valdez, Tiffany Reyes
+         */
     elevatorCalled = false;
      //String array of choices for the JOptionPane
         String[] choicesBoilerRoom = {"Go through the Elevator to the [Storage Room].",
@@ -922,6 +1049,13 @@ public class TowerOfTerror {
 }
     //***ON FLOOR 0: BASEMENT***//
     public void StorageRoom(){
+        
+         /**
+         * Case 0 from the Elevator, to Basement, to StorageRoom/
+         * Offers taking key from Chest for Attic, Backpack and Elevator.
+         * Loop breaks if player dies or if the elevator is called.
+         * @author Yasmani Valdez, Tiffany Reyes, Ivan Reyes, Naadir Kirlew
+         */
      //String array of choices for the JOptionPane
      elevatorCalled = false;
      
@@ -969,48 +1103,53 @@ public class TowerOfTerror {
 }
     // Modified by Naadir Kirlew
     public String Backpack(int backpackIndex){
-        
+            /**
+             * Outputs message depending on item chosen in rooms.
+             * Returns nothing, just goes back to calling point to continue loops.
+             * Changed to the hashset.
+         * @author Naadir Kirlew, Tiffany Reyes, Ivan Reyes
+         */
         String itemMessage= "";
         ImageIcon lastLocation = new ImageIcon("src/main/java/img/bcaClapCheer.gif"); 
         switch(backpackIndex){
                     //Chest case
             case 1: itemMessage = "A Ghost escapes from the Chest and scares you to death."
                     + "\nYou die.\nF.";
-                    lastLocation = new ImageIcon("src/main/java/img/livingroom.gif");
+                    lastLocation = new ImageIcon("src/main/java/img/2death.gif");
                     Backpack.add("Chest");
                     playerAlive = false;
                     break;
                     //Candelabra case
             case 2: itemMessage = "Suddenly the Candelabra flares! You see a death shadow."
                     + "\nThen you die.";
-                    lastLocation = new ImageIcon("src/main/java/img/diningroom.gif");
+                    lastLocation = new ImageIcon("src/main/java/img/6death.gif");
                     Backpack.add("Candelabra");
                     playerAlive = false;
                     break;
                     //Refridgerator case
             case 3: itemMessage = "You open the refridgerator and see someone's head.\n"
                     + "The jar slowly unfogs... it's yours.";
-                    lastLocation = new ImageIcon("src/main/java/img/kitchen.gif");
+                    lastLocation = new ImageIcon("src/main/java/img/4death.gif");
                     Backpack.add("Jar from the Refridgerator");
                     playerAlive = false;
                     break;
                     //Cabinet case
             case 4: itemMessage = "The dishes and glasses fly out of the cabinet and hit you in the face."
                     + "\n You die.";
-                    lastLocation = new ImageIcon("src/main/java/img/kitchen.gif");
+                    lastLocation = new ImageIcon("src/main/java/img/4death.gif");
                     Backpack.add("Broken Glass from the Cabinet");
                     playerAlive = false;
                     break;
                     //Dusty recipe box case
             case 5: itemMessage = "You open the box and find some pretty decent recipes.\n"
                     + "You don't die. But you will eventually.";
-                    lastLocation = new ImageIcon("src/main/java/img/pantry1.gif");
+                    lastLocation = new ImageIcon("src/main/java/img/5item.gif");
                     Backpack.add("Recipes from the Dusty Recipe Box");
                     break;
                     //Broom case
             case 6: itemMessage = "As soon as you grasp the broom, the room explodes.\n"
                     + "RIP.";
-                    lastLocation = new ImageIcon("src/main/java/img/pantry2.gif");
+                    lastLocation = new ImageIcon("src/main/java/img/5death.gif");
                     Backpack.add("Haunted Broom");
                     playerAlive = false;
                     break;
@@ -1018,21 +1157,21 @@ public class TowerOfTerror {
             case 7: itemMessage = "You look in the mirror. You look fantastic.\n"
                     + "Keep doing you. Great job man.";
                     if(livingroomMirror){
-                        lastLocation = new ImageIcon("src/main/java/img/bathroommirror.gif");
+                        lastLocation = new ImageIcon("src/main/java/img/3mirror.gif");
                         Backpack.add("Living Room Bathroom's Mirror");
-                        }else{lastLocation = new ImageIcon("src/main/java/img/bathroommirror-bed.gif");
-                        Backpack.add("Shared Bedroom Bathroom's Mirror");}
+                        }else{lastLocation = new ImageIcon("src/main/java/img/9mirror.gif");
+                        Backpack.add("Bedroom Bathroom's Mirror");}
                     break;
                     //Shower case
             case 8: itemMessage = "The shower suddenly turns on. You get drenched.\n"
                     + "You kinda needed it. How considerate.";
                     Backpack.add("Spooky Water from the Shower");
                     switch(bathroomShower){
-                        case 0: lastLocation = new ImageIcon("src/main/java/img/shower.gif");
+                        case 0: lastLocation = new ImageIcon("src/main/java/img/butt.gif");
                             break;
-                        case 1: lastLocation = new ImageIcon("src/main/java/img/shower-bedbath.gif");
+                        case 1: lastLocation = new ImageIcon("src/main/java/img/butt.gif");
                             break;
-                        case 2: lastLocation = new ImageIcon("src/main/java/img/shower-master.gif");
+                        case 2: lastLocation = new ImageIcon("src/main/java/img/butt.gif");
                             break;
                     }
                     break;
@@ -1040,45 +1179,45 @@ public class TowerOfTerror {
             case 9: itemMessage = "You sit in the Rocking Chair. It breaks suddenly.\n"
                     + "You fall to the floor. Then through the floor.\n"
                     + "Through the ground. Straight to hell.";
-                    lastLocation = new ImageIcon("src/main/java/img/bed1.gif");
+                    lastLocation = new ImageIcon("src/main/java/img/angry.gif");
                     Backpack.add("Wood Splinters from the Rocking Chair");
                     playerAlive = false;
                     break;
                     //Window
             case 10: itemMessage = "You fall through the Window. Who couldve seen this coming?";
-                    lastLocation = new ImageIcon("src/main/java/img/bed1-1.gif");
+                    lastLocation = new ImageIcon("src/main/java/img/angry.gif");
                     Backpack.add("Broken Glass from the Window");
                     playerAlive = false;
                     break;
                     //Doll House
             case 11: itemMessage = "You lose track of a few hours playing with the dolls.\n"
                     + "Really sends you back. Such nostalgia. What a good time.";
-                    lastLocation = new ImageIcon("src/main/java/img/bed2-1.gif");
+                    lastLocation = new ImageIcon("src/main/java/img/yay.gif");
                     Backpack.add("Haunted Dolls");
                     break;
                     //Dresser
             case 12: itemMessage = "A ghost flies out of the dresser. It's dressed great.\n"
                     + "It still kills you though.";
-                    lastLocation = new ImageIcon("src/main/java/img/dresser.gif");
+                    lastLocation = new ImageIcon("src/main/java/img/cry.gif");
                     Backpack.add("Pet Ghost (?)");
                     playerAlive = false;
                     break;
                     //Jewelry Box case
             case 13: itemMessage = "You've opened Pandora's box. The end of the world is neigh.\n"
                     + "No one blames you, just capitalism. Justly.";
-                    lastLocation = new ImageIcon("src/main/java/img/masterbedroom.gif");
+                    lastLocation = new ImageIcon("src/main/java/img/nopls.gif");
                     Backpack.add("Pandora's Now Empty Box");
                     break;
                     //intricate oil lamp case
             case 14: itemMessage = "You're right. It's an oil diffuser.\n"
                     + "In this dark corner of the Haunted House,\nyou find true relaxation "
                     + "in the scent \"Lemon Grass\"."+"\nNice.";
-                    lastLocation = new ImageIcon("src/main/java/img/oillamp.gif");
+                    lastLocation = new ImageIcon("src/main/java/img/yay.gif");
                     Backpack.add("Oil Diffuser");
-                    playerAlive = false;
                     break;
             case 15: itemMessage = "You found an eerily irresistible key, "
                     + "/n it calls you!! You must have it!!!";
+                    lastLocation = new ImageIcon("src/main/java/img/party.gif");
                     Backpack.add("Precious Key");
                     break;
             default: 
@@ -1096,6 +1235,15 @@ public class TowerOfTerror {
         return backpackMessage;
     }
     public int chosenDestination(String[] choices, String chosenLocation){
+            /**
+         * Called in every method.
+         * Just for case purposes and simplicity, rather than comparing strings,
+         * allows utilization of a switch statement.
+         * @param choices String array, usually of the JOptionPane choices for a window.
+         * @param chosenLocation String, usually what was chosen from the JOptionPane
+         * @return Returns the index of the string in the passed in array.
+         * @author Tiffany Reyes
+         */
          /*For loop to find index of chosen destination for switch case*/
          //intiialze to 0
         int choicesIndex = 0;
